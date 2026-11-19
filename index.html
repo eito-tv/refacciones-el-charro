@@ -38,7 +38,6 @@
   <script>document.documentElement.classList.add('js')</script>
   <script src="script.js" defer></script>
 
-  <!-- MARCADOR en JSON-LD: openingHours (formato: "Mo-Fr 09:00-18:00", "Sa 09:00-14:00") -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,7 +60,7 @@
       "postalCode": "44460",
       "addressCountry": "MX"
     },
-    "openingHours": "[HORARIO]",
+    "openingHours": ["Mo-Fr 09:00-19:00", "Sa 09:00-14:00"],
     "sameAs": [
       "https://www.instagram.com/refacciones_el_charro/",
       "https://www.tiktok.com/@refacciones_el_charro",
@@ -72,7 +71,7 @@
         "@type": "AutoPartsStore",
         "name": "Refacciones El Charro · San Carlos",
         "telephone": "+523335044838",
-        "openingHours": "[HORARIO]",
+        "openingHours": ["Mo-Fr 09:00-19:00", "Sa 09:00-14:00"],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "C. José Luis Verdía 835, San Carlos",
@@ -86,7 +85,7 @@
         "@type": "AutoPartsStore",
         "name": "Refacciones El Charro · 5 de Febrero",
         "telephone": "+523335044838",
-        "openingHours": "[HORARIO]",
+        "openingHours": ["Mo-Fr 09:00-19:00", "Sa 09:00-14:00"],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Av. 5 de Febrero 268",
@@ -213,7 +212,14 @@
             <a class="btn btn--blue" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%205%20de%20Febrero%20268%2C%20Guadalajara%2C%20Jal." target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Cómo llegar<span class="sr-only"> al local de 5 de Febrero</span></a>
           </article>
         </div>
-        <p class="hours reveal"><strong>Horario:</strong> <!-- MARCADOR --> [HORARIO]</p>
+        <div class="hours reveal">
+          <p class="hours__t">Horario</p>
+          <ul>
+            <li><strong>Lunes a viernes:</strong> 9:00 a.m. a 7:00 p.m.</li>
+            <li><strong>Sábado:</strong> 9:00 a.m. a 2:00 p.m.</li>
+            <li><strong>Domingo:</strong> descansamos. Si nos escribes, te contestamos el lunes en cuanto podamos.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
