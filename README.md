@@ -23,7 +23,7 @@ Busca y reemplaza en `index.html` (Ctrl+H en VS Code):
 
 | Marcador | Qué poner | Dónde aparece |
 |---|---|---|
-| ~~`[NUMERO_10_DIGITOS]`~~ | Ya está lleno: principal 33 2347 6486, alterno 33 3141 5065 | botones de WhatsApp, botón flotante, footer y JSON-LD |
+| ~~`[NUMERO_10_DIGITOS]`~~ | Ya está lleno: principal 33 3504 4838, alterno 33 3141 5065 | botones de WhatsApp, botón flotante, footer y JSON-LD |
 | `[HORARIO]` | En la sección **Visítanos**: texto normal (ej. `Lunes a viernes 9:00 a 18:00 · Sábado 9:00 a 14:00`). En el **JSON-LD** (3 veces): formato schema, ej. `Mo-Fr 09:00-18:00` y si hay sábado cambia la línea por `["Mo-Fr 09:00-18:00", "Sa 09:00-14:00"]` | sección Visítanos y JSON-LD |
 | ~~`[URL_SITIO]`~~ | Ya está lleno con `https://eito-tv.github.io/refacciones-el-charro/` | canonical, Open Graph, Twitter y JSON-LD |
 | `[LINK_FACEBOOK]` | link de la página de Facebook | botones comentados en hero y footer: quita `<!--` y `-->` |
