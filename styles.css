@@ -37,6 +37,7 @@ body {
   color: var(--ink);
   background: var(--cream);
   overflow-x: hidden;
+  overflow-x: clip; /* no crea contenedor de scroll: el menú fijo funciona mejor en celular */
 }
 img, svg { display: block; max-width: 100%; }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.05; margin: 0 0 .4em; letter-spacing: .01em; }
@@ -200,8 +201,9 @@ address { font-style: normal; }
 
 .brands { margin-top: 36px; background: var(--ink); color: var(--white); padding: 18px 0 20px; }
 .brands__title { text-align: center; font-weight: 700; margin: 0 0 10px; color: var(--yellow); }
-.marquee { display: flex; overflow: hidden; }
-.marquee__track { display: flex; flex: none; gap: 12px; padding-right: 12px; animation: slide 32s linear infinite; }
+.marquee { display: flex; overflow: hidden; contain: content; }
+.marquee.is-paused .marquee__track { animation-play-state: paused; }
+.marquee__track { display: flex; flex: none; gap: 12px; padding-right: 12px; animation: slide 32s linear infinite; will-change: transform; }
 .marquee__track li {
   font-family: var(--display); font-size: 1.35rem;
   background: var(--white); color: var(--ink);

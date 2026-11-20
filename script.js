@@ -20,26 +20,45 @@
     items.forEach(function (el) { io.observe(el); });
   }
 
-  // Menú: marca la sección en la que va el usuario
+  // Menú: marca la sección en la que va el usuario.
+  // Ojo: no usar scrollIntoView aquí; en celular mueve toda la página y la deja atorada.
+  // Solo se desplaza la barra del menú, de lado.
+  var nav = document.querySelector('.top__nav');
   var links = document.querySelectorAll('.top__nav a');
+  function centrarEnMenu(a) {
+    if (!nav || nav.scrollWidth <= nav.clientWidth) return;
+    var n = nav.getBoundingClientRect();
+    var r = a.getBoundingClientRect();
+    var left = nav.scrollLeft + (r.left - n.left) - (n.width - r.width) / 2;
+    nav.scrollTo({ left: Math.max(0, left), behavior: reduce ? 'auto' : 'smooth' });
+  }
   if ('IntersectionObserver' in window && links.length) {
     var byId = {};
+    var activo = null;
     links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
-        links.forEach(function (a) { a.removeAttribute('aria-current'); });
         var a = byId[e.target.id];
-        if (a) {
-          a.setAttribute('aria-current', 'true');
-          if (a.scrollIntoView && window.innerWidth < 768) a.scrollIntoView({ block: 'nearest', inline: 'center' });
-        }
+        if (!a || a === activo) return;
+        if (activo) activo.removeAttribute('aria-current');
+        a.setAttribute('aria-current', 'true');
+        activo = a;
+        centrarEnMenu(a);
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     Object.keys(byId).forEach(function (id) {
       var s = document.getElementById(id);
       if (s) spy.observe(s);
     });
+  }
+
+  // Carrusel de marcas: se pausa cuando no está en pantalla (ahorra batería y CPU)
+  var marquee = document.querySelector('.marquee');
+  if (marquee && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      marquee.classList.toggle('is-paused', !entries[0].isIntersecting);
+    }).observe(marquee);
   }
 
   // Cotizador: arma el mensaje y abre WhatsApp
