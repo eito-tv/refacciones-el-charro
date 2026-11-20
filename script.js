@@ -6,18 +6,32 @@
   var y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  // Aparición de secciones al hacer scroll
+  // Aparición de secciones al hacer scroll.
+  // Se activa en cuanto asoma 1 px (threshold 0) y un poco antes de entrar (rootMargin),
+  // y nunca deja contenido escondido arriba de la pantalla aunque se baje rápido.
   var items = document.querySelectorAll('.reveal');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function mostrar(el) { el.classList.add('is-in'); }
   if (reduce || !('IntersectionObserver' in window)) {
-    items.forEach(function (el) { el.classList.add('is-in'); });
+    items.forEach(mostrar);
   } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        if (e.isIntersecting || e.boundingClientRect.top < 0) { mostrar(e.target); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    }, { rootMargin: '0px 0px 8% 0px', threshold: 0 });
     items.forEach(function (el) { io.observe(el); });
+    // Red de seguridad: al terminar de hacer scroll, todo lo que ya pasó o está en pantalla se muestra.
+    var t;
+    window.addEventListener('scroll', function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        var h = window.innerHeight;
+        document.querySelectorAll('.reveal:not(.is-in)').forEach(function (el) {
+          if (el.getBoundingClientRect().top < h) { mostrar(el); io.unobserve(el); }
+        });
+      }, 120);
+    }, { passive: true });
   }
 
   // Menú: marca la sección en la que va el usuario.
@@ -25,13 +39,19 @@
   // Solo se desplaza la barra del menú, de lado.
   var nav = document.querySelector('.top__nav');
   var links = document.querySelectorAll('.top__nav a');
-  function centrarEnMenu(a) {
-    if (!nav || nav.scrollWidth <= nav.clientWidth) return;
-    var n = nav.getBoundingClientRect();
-    var r = a.getBoundingClientRect();
-    var left = nav.scrollLeft + (r.left - n.left) - (n.width - r.width) / 2;
-    nav.scrollTo({ left: Math.max(0, left), behavior: reduce ? 'auto' : 'smooth' });
-  }
+  var pendiente = null, quieto;
+  function centrarEnMenu(a) { pendiente = a; }
+  // Solo se mueve el menú cuando la persona deja de hacer scroll, para no competir con su dedo.
+  window.addEventListener('scroll', function () {
+    clearTimeout(quieto);
+    quieto = setTimeout(function () {
+      if (!pendiente || !nav || nav.scrollWidth <= nav.clientWidth) return;
+      var n = nav.getBoundingClientRect();
+      var r = pendiente.getBoundingClientRect();
+      nav.scrollLeft = Math.max(0, nav.scrollLeft + (r.left - n.left) - (n.width - r.width) / 2);
+      pendiente = null;
+    }, 180);
+  }, { passive: true });
   if ('IntersectionObserver' in window && links.length) {
     var byId = {};
     var activo = null;
