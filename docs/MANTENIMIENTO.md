@@ -35,7 +35,7 @@ Todos los botones de WhatsApp mandan un mensaje que empieza con **"Hola, vengo d
 
 - **Galería de fotos:** pon fotos reales del local y del surtido en `assets/fotos/` y descomenta el bloque.
 - **Devoluciones:** descomenta la pregunta cuando definan la política (y agrégala al JSON-LD).
-- **Facebook y Mercado Libre:** descomenta los botones en el pie cuando tengan los links.
+- **Mercado Libre:** descomenta el botón en el pie cuando tengan el link de la tienda.
 - **Fundador:** opcional, nombre e historia en "Quiénes somos".
 - **Search Console:** etiqueta de verificación en el `<head>`.
 - **Analítica:** script en el `<head>`.
