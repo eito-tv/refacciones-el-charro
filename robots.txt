@@ -1,0 +1,6 @@
+# Nota: en GitHub Pages con dirección eito-tv.github.io/refacciones-el-charro/, Google solo lee
+# el robots.txt de la raíz del dominio. Este archivo empieza a contar cuando conecten un dominio propio.
+User-agent: *
+Allow: /
+
+Sitemap: https://eito-tv.github.io/refacciones-el-charro/sitemap.xml

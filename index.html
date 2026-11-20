@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Refacciones de colisión Guadalajara | Refacciones El Charro</title>
-  <meta name="description" content="Refacciones de colisión en Guadalajara a precios muy bajos: faros, fascias, calaveras, marcos de radiador y más para unas 40 marcas. Envíos a todo México. Cotiza por WhatsApp.">
+  <title>Refacciones de colisión en Guadalajara | Refacciones El Charro</title>
+  <meta name="description" content="Negocio familiar con más de 30 años en Guadalajara. Faros, fascias, calaveras, marcos de radiador y más para unas 40 marcas, a precio de remate. Facturamos y enviamos a todo México. Cotiza por WhatsApp.">
   <meta name="theme-color" content="#82CF24">
-  <!-- URL pública del sitio. Si conectas un dominio propio, cámbiala aquí y en Open Graph, Twitter y JSON-LD -->
+  <!-- URL pública. Si conectas un dominio propio, cámbiala aquí, en Open Graph, Twitter, JSON-LD, robots.txt y sitemap.xml -->
   <link rel="canonical" href="https://eito-tv.github.io/refacciones-el-charro/">
+  <!-- MARCADOR Search Console: pega aquí la etiqueta de verificación de Google
+  <meta name="google-site-verification" content="[CODIGO_SEARCH_CONSOLE]">
+  -->
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Refacciones El Charro">
   <meta property="og:title" content="Refacciones El Charro · Refacciones de colisión en Guadalajara">
-  <meta property="og:description" content="Faros, fascias, calaveras y más para ~40 marcas a precios bajísimos. Envíos a todo México.">
+  <meta property="og:description" content="Faros, fascias, calaveras y más para ~40 marcas a precio de remate. Facturamos y enviamos a todo México.">
   <meta property="og:url" content="https://eito-tv.github.io/refacciones-el-charro/">
   <meta property="og:image" content="https://eito-tv.github.io/refacciones-el-charro/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -22,56 +25,39 @@
   <meta property="og:image:alt" content="Logo de Refacciones El Charro: camioneta amarilla clásica, con el texto Refacciones de colisión, precios bajísimos.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Refacciones El Charro · Refacciones de colisión en Guadalajara">
-  <meta name="twitter:description" content="Faros, fascias, calaveras y más para ~40 marcas a precios bajísimos. Envíos a todo México.">
+  <meta name="twitter:description" content="Faros, fascias, calaveras y más para ~40 marcas a precio de remate. Facturamos y enviamos a todo México.">
   <meta name="twitter:image" content="https://eito-tv.github.io/refacciones-el-charro/assets/og-image.jpg">
 
   <link rel="icon" href="favicon.ico" sizes="48x48">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lilita+One&amp;display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&amp;display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&amp;display=swap"></noscript>
-  <link rel="preload" as="image" type="image/webp" href="assets/logo-720.webp" imagesrcset="assets/logo-360.webp 360w, assets/logo-720.webp 720w" imagesizes="(min-width: 900px) 420px, 78vw" fetchpriority="high">
+  <link rel="preload" as="font" type="font/woff2" href="assets/lilita-one.woff2" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="assets/logo-720.webp" imagesrcset="assets/logo-360.webp 360w, assets/logo-720.webp 720w" imagesizes="(min-width: 900px) 380px, 56vw" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
   <script>document.documentElement.classList.add('js')</script>
   <script src="script.js" defer></script>
+  <!-- MARCADOR analítica: pega aquí el script de Cloudflare Web Analytics o GoatCounter (ver README) -->
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "AutoPartsStore",
-    "@id": "https://eito-tv.github.io/refacciones-el-charro/#negocio",
-    "name": "Refacciones El Charro",
-    "description": "Refacciones de colisión para unas 40 marcas a precios muy bajos. Negocio familiar con más de 30 años en Guadalajara. Envíos a todo México.",
-    "url": "https://eito-tv.github.io/refacciones-el-charro/",
-    "image": "https://eito-tv.github.io/refacciones-el-charro/assets/og-image.jpg",
-    "logo": "https://eito-tv.github.io/refacciones-el-charro/assets/logo.png",
-    "telephone": "+523335044838",
-    "email": "refaccioneselcharro@gmail.com",
-    "priceRange": "$",
-    "areaServed": "MX",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "C. José Luis Verdía 835, San Carlos",
-      "addressLocality": "Guadalajara",
-      "addressRegion": "Jalisco",
-      "postalCode": "44460",
-      "addressCountry": "MX"
-    },
-    "openingHours": ["Mo-Fr 09:00-19:00", "Sa 09:00-14:00"],
-    "sameAs": [
-      "https://www.instagram.com/refacciones_el_charro/",
-      "https://www.tiktok.com/@refacciones_el_charro",
-      "https://www.youtube.com/@RefaccionesElcharro"
-    ],
-    "department": [
+    "@graph": [
       {
         "@type": "AutoPartsStore",
-        "name": "Refacciones El Charro · San Carlos",
+        "@id": "https://eito-tv.github.io/refacciones-el-charro/#negocio",
+        "name": "Refacciones El Charro",
+        "alternateName": "Autopartes El Charro",
+        "description": "Negocio familiar con más de 30 años en Guadalajara. Refacciones de colisión para unas 40 marcas a precio de remate. Facturamos y enviamos a todo México.",
+        "url": "https://eito-tv.github.io/refacciones-el-charro/",
+        "image": "https://eito-tv.github.io/refacciones-el-charro/assets/og-image.jpg",
+        "logo": "https://eito-tv.github.io/refacciones-el-charro/assets/logo.png",
         "telephone": "+523335044838",
-        "openingHours": ["Mo-Fr 09:00-19:00", "Sa 09:00-14:00"],
+        "email": "refaccioneselcharro@gmail.com",
+        "priceRange": "$",
+        "currenciesAccepted": "MXN",
+        "paymentAccepted": "Efectivo, transferencia, tarjeta de débito y crédito, Mercado Pago",
+        "areaServed": { "@type": "Country", "name": "México" },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "C. José Luis Verdía 835, San Carlos",
@@ -79,20 +65,53 @@
           "addressRegion": "Jalisco",
           "postalCode": "44460",
           "addressCountry": "MX"
-        }
+        },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "19:00" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/refacciones_el_charro/",
+          "https://www.tiktok.com/@refacciones_el_charro",
+          "https://www.youtube.com/@RefaccionesElcharro"
+        ],
+        "department": [
+          {
+            "@type": "AutoPartsStore",
+            "name": "Refacciones El Charro · San Carlos",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. José Luis Verdía 835, San Carlos",
+              "addressLocality": "Guadalajara",
+              "addressRegion": "Jalisco",
+              "postalCode": "44460",
+              "addressCountry": "MX"
+            }
+          },
+          {
+            "@type": "AutoPartsStore",
+            "name": "Refacciones El Charro · 5 de Febrero",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. 5 de Febrero 268",
+              "addressLocality": "Guadalajara",
+              "addressRegion": "Jalisco",
+              "addressCountry": "MX"
+            }
+          }
+        ]
       },
       {
-        "@type": "AutoPartsStore",
-        "name": "Refacciones El Charro · 5 de Febrero",
-        "telephone": "+523335044838",
-        "openingHours": ["Mo-Fr 09:00-19:00", "Sa 09:00-14:00"],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Av. 5 de Febrero 268",
-          "addressLocality": "Guadalajara",
-          "addressRegion": "Jalisco",
-          "addressCountry": "MX"
-        }
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "¿Las piezas son nuevas o usadas?", "acceptedAnswer": { "@type": "Answer", "text": "No son piezas de deshuesadero: nos llegan de distribuidor. Muchas traen un detalle estético (un rayón, un raspón o un golpecito) y por eso cuestan menos. Antes de venderte te mandamos fotos o video del detalle." } },
+          { "@type": "Question", "name": "¿Son originales?", "acceptedAnswer": { "@type": "Answer", "text": "La mayoría son de reemplazo (genéricas, muchas de fabricación taiwanesa) y también conseguimos algunas originales. Siempre te decimos cuál es cuál antes de que compres." } },
+          { "@type": "Question", "name": "¿Cómo sé si la pieza le queda a mi carro?", "acceptedAnswer": { "@type": "Answer", "text": "Mándanos marca, modelo, año y versión. Si es faro, calavera o espejo, dinos el lado (piloto o copiloto). Una foto de la pieza dañada o el número de parte ayuda mucho." } },
+          { "@type": "Question", "name": "¿Hacen envíos fuera de Guadalajara?", "acceptedAnswer": { "@type": "Answer", "text": "Sí, a todo México por paquetería: PMM, Paquete Express, Gran Cañón, Tiny Pack, HGR, entre otras. El costo depende del tamaño de la pieza y de tu ciudad; te lo cotizamos por WhatsApp." } },
+          { "@type": "Question", "name": "¿Facturan?", "acceptedAnswer": { "@type": "Answer", "text": "Sí. Pide tu factura al momento de la compra." } },
+          { "@type": "Question", "name": "¿Cómo puedo pagar?", "acceptedAnswer": { "@type": "Answer", "text": "En efectivo, transferencia, tarjeta (tenemos terminal) o Mercado Pago." } },
+          { "@type": "Question", "name": "¿Tienen garantía?", "acceptedAnswer": { "@type": "Answer", "text": "No manejamos garantía. Por eso te enseñamos la pieza y su detalle antes de venderla, para que compres sabiendo exactamente cómo viene." } }
+        ]
       }
     ]
   }
@@ -109,57 +128,108 @@
     <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.7 4.7 12 4.7 12 4.7s-6.7 0-8.5.5a2.8 2.8 0 0 0-2 2C1 9 1 12 1 12s0 3 .5 4.8a2.8 2.8 0 0 0 2 2c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5a2.8 2.8 0 0 0 2-2C23 15 23 12 23 12s0-3-.5-4.8ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"/></symbol>
     <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1a23 23 0 0 0-2.5-.1c-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V22h3.4Z"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.5 4.8 4.8L19.5 7"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M3 5.5h18v13H3Z"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="m3.5 6 8.5 7 8.5-7"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.4"/><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 7v5.3l3.4 2.2"/></symbol>
   </svg>
 
-  <header class="hero">
-    <div class="hero__inner wrap">
-      <picture class="hero__logo">
-        <source type="image/webp" srcset="assets/logo-360.webp 360w, assets/logo-720.webp 720w" sizes="(min-width: 900px) 420px, 78vw">
-        <img src="assets/logo.png" width="720" height="709" alt="Refacciones El Charro: logo con una camioneta pickup clásica amarilla" fetchpriority="high" decoding="async">
-      </picture>
-      <div class="hero__copy">
-        <p class="tag">Guadalajara · más de 30 años</p>
-        <h1>Refacciones de colisión <span class="hl">a precio de remate</span></h1>
-        <p class="lead">Faros, fascias, calaveras y más para unas 40 marcas. Si chocaste, aquí te sale barato.</p>
-        <a class="btn btn--wa btn--xl" href="https://wa.me/523335044838?text=Hola%2C%20quiero%20cotizar%20una%20pieza" target="_blank" rel="noopener">
-          <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Cotiza por WhatsApp
-        </a>
-        <p class="alt-wa">¿No te contestan? Escribe al <a href="https://wa.me/523331415065?text=Hola%2C%20quiero%20cotizar%20una%20pieza" target="_blank" rel="noopener">33 3141 5065</a></p>
-        <ul class="social" aria-label="Nuestras redes">
-          <li><a class="chip" href="https://www.tiktok.com/@refacciones_el_charro" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a></li>
-          <li><a class="chip" href="https://www.instagram.com/refacciones_el_charro/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a></li>
-          <li><a class="chip" href="https://www.youtube.com/@RefaccionesElcharro" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-yt"/></svg>YouTube</a></li>
-          <!-- MARCADOR: descomenta cuando tengas el link de Facebook
-          <li><a class="chip" href="[LINK_FACEBOOK]" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a></li>
-          -->
-          <!-- MARCADOR: descomenta cuando tengas el link de Mercado Libre
-          <li><a class="chip" href="[LINK_MERCADO_LIBRE]" target="_blank" rel="noopener">Mercado Libre</a></li>
-          -->
+  <!-- Barra superior fija -->
+  <header class="top">
+    <div class="top__inner wrap">
+      <a class="top__brand" href="#inicio" aria-label="Refacciones El Charro, ir al inicio">
+        <img src="assets/logo-360.webp" width="40" height="40" alt="">
+        <span>El Charro</span>
+      </a>
+      <nav class="top__nav" aria-label="Secciones">
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#piezas">Piezas</a></li>
+          <li><a href="#como-compras">Cómo compras</a></li>
+          <li><a href="#envios">Envíos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
         </ul>
-      </div>
+      </nav>
+      <a class="top__wa" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza." target="_blank" rel="noopener" data-evento="wa-barra">
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span>
+      </a>
     </div>
   </header>
 
   <main id="contenido">
-    <section class="sec sec--cream" aria-labelledby="t-piezas">
+    <!-- ===== Inicio ===== -->
+    <section class="hero" id="inicio" aria-labelledby="t-inicio">
+      <div class="hero__inner wrap">
+        <picture class="hero__logo">
+          <source type="image/webp" srcset="assets/logo-360.webp 360w, assets/logo-720.webp 720w" sizes="(min-width: 900px) 380px, 56vw">
+          <img src="assets/logo.png" width="720" height="709" alt="Refacciones El Charro: logo con una camioneta pickup clásica amarilla" fetchpriority="high" decoding="async">
+        </picture>
+        <div class="hero__copy">
+          <p class="tag">Guadalajara · más de 30 años</p>
+          <h1 id="t-inicio">Refacciones de colisión <span class="hl">a precio de remate</span></h1>
+          <p class="lead">Faros, fascias, calaveras y más para unas 40 marcas. Si chocaste, aquí te sale barato. Y si no estás en Guadalajara, te la mandamos.</p>
+          <a class="btn btn--wa btn--xl" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza." target="_blank" rel="noopener" data-evento="wa-inicio">
+            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Cotiza por WhatsApp
+          </a>
+          <p class="alt-wa">Línea 2: <a href="https://wa.me/523331415065?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza." target="_blank" rel="noopener" data-evento="wa-linea2">33 3141 5065</a></p>
+        </div>
+      </div>
+      <ul class="trust wrap" aria-label="Por qué comprarnos">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>+30 años en el gremio</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>2 locales en Guadalajara</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Envíos a todo México</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sí facturamos</li>
+      </ul>
+    </section>
+
+    <!-- ===== Quiénes somos ===== -->
+    <section class="sec sec--cream" id="nosotros" aria-labelledby="t-nosotros">
+      <div class="wrap about">
+        <div>
+          <h2 id="t-nosotros" class="reveal">Quiénes somos</h2>
+          <p class="big reveal">Somos un <strong>negocio familiar de Guadalajara</strong> que lleva más de 30 años vendiendo refacciones de colisión. Empezamos atendiendo a talleres y hojalateros de la ciudad, y muchos de ellos nos siguen comprando hasta hoy.</p>
+          <p class="big reveal">Hoy somos un equipo de 9 personas en dos locales. Seguimos trabajando igual: <strong>precio justo, buen trato y sin esconder nada</strong>. Lo nuevo es que ahora también nos encuentras en internet y te mandamos tu pieza a cualquier parte del país.</p>
+          <!-- MARCADOR: si quieren, aquí va el nombre del fundador y una foto suya, p. ej.
+          <p class="big reveal">Todo empezó con don [NOMBRE] ...</p>
+          -->
+        </div>
+        <ul class="stats" aria-label="El Charro en números">
+          <li class="stat reveal"><span class="stat__n">+30</span><span class="stat__t">años vendiendo</span></li>
+          <li class="stat reveal"><span class="stat__n">~40</span><span class="stat__t">marcas de autos</span></li>
+          <li class="stat reveal"><span class="stat__n">2</span><span class="stat__t">locales en GDL</span></li>
+          <li class="stat reveal"><span class="stat__n">9</span><span class="stat__t">personas para atenderte</span></li>
+        </ul>
+      </div>
+      <!-- MARCADOR galería: cuando tengan fotos reales del local y del surtido, ponlas en assets/fotos/ y descomenta.
+           Fotos horizontales, 1200 px de ancho, en .webp o .jpg.
+      <div class="wrap gallery">
+        <figure class="reveal"><img src="assets/fotos/local-san-carlos.webp" width="1200" height="800" loading="lazy" alt="Fachada del local de San Carlos"><figcaption>Local San Carlos</figcaption></figure>
+        <figure class="reveal"><img src="assets/fotos/fascias.webp" width="1200" height="800" loading="lazy" alt="Pared llena de fascias de distintos modelos"><figcaption>Así se ve el surtido</figcaption></figure>
+        <figure class="reveal"><img src="assets/fotos/faros.webp" width="1200" height="800" loading="lazy" alt="Anaquel con faros y calaveras"><figcaption>Faros y calaveras</figcaption></figure>
+      </div>
+      -->
+    </section>
+
+    <!-- ===== Qué vendemos ===== -->
+    <section class="sec sec--white" id="piezas" aria-labelledby="t-piezas">
       <div class="wrap">
-        <h2 id="t-piezas" class="reveal">Qué manejamos</h2>
-        <p class="sub reveal">Puras piezas de colisión. Lo que más sale:</p>
+        <h2 id="t-piezas" class="reveal">Qué vendemos</h2>
+        <p class="sub reveal">Puras piezas de colisión, nada de motor. Lo que más sale:</p>
         <ul class="cards">
           <li class="card reveal">
             <svg class="pic" viewBox="0 0 80 56" aria-hidden="true"><path d="M8 14c0-5 4-8 9-8h36c11 0 21 9 21 21s-10 23-21 23H17c-5 0-9-4-9-9Z" fill="#FDF204" stroke="#111" stroke-width="4" stroke-linejoin="round"/><circle cx="50" cy="28" r="11" fill="#fff" stroke="#111" stroke-width="4"/><path d="M16 20h18M16 30h18M16 40h18" stroke="#111" stroke-width="4" stroke-linecap="round"/></svg>
             <h3>Faros</h3>
-            <p>Lo primero que se rompe en un choque de frente.</p>
+            <p>Lo primero que se rompe en un choque de frente. También faros de niebla.</p>
           </li>
           <li class="card reveal">
             <svg class="pic" viewBox="0 0 80 56" aria-hidden="true"><path d="M4 18c8-8 64-8 72 0v18c0 8-6 12-12 12H16C10 48 4 44 4 36Z" fill="#FD650A" stroke="#111" stroke-width="4" stroke-linejoin="round"/><rect x="22" y="24" width="36" height="12" rx="4" fill="#111"/><circle cx="12" cy="38" r="4" fill="#fff" stroke="#111" stroke-width="3"/><circle cx="68" cy="38" r="4" fill="#fff" stroke="#111" stroke-width="3"/></svg>
             <h3>Fascias</h3>
-            <p>Delanteras y traseras.</p>
+            <p>Delanteras y traseras, también defensas.</p>
           </li>
           <li class="card reveal">
             <svg class="pic" viewBox="0 0 80 56" aria-hidden="true"><path d="M10 8h44c10 0 16 8 16 20s-6 20-16 20H10Z" fill="#E4252C" stroke="#111" stroke-width="4" stroke-linejoin="round"/><path d="M10 28h58" stroke="#111" stroke-width="4"/><rect x="18" y="14" width="16" height="8" rx="3" fill="#fff" stroke="#111" stroke-width="3"/><rect x="18" y="34" width="26" height="8" rx="3" fill="#FD650A" stroke="#111" stroke-width="3"/></svg>
             <h3>Calaveras</h3>
-            <p>Las luces traseras.</p>
+            <p>Las luces traseras, lado piloto y copiloto.</p>
           </li>
           <li class="card reveal">
             <svg class="pic" viewBox="0 0 80 56" aria-hidden="true"><rect x="6" y="8" width="68" height="40" rx="6" fill="#fff" stroke="#111" stroke-width="4"/><rect x="18" y="18" width="44" height="20" rx="3" fill="#0073C2" stroke="#111" stroke-width="4"/><circle cx="12" cy="14" r="2.5" fill="#111"/><circle cx="68" cy="14" r="2.5" fill="#111"/><circle cx="12" cy="42" r="2.5" fill="#111"/><circle cx="68" cy="42" r="2.5" fill="#111"/></svg>
@@ -167,11 +237,15 @@
             <p>El famoso “alma” del frente.</p>
           </li>
         </ul>
-        <p class="also reveal"><strong>Y también:</strong> espejos, parrillas, cofres, salpicaderas, radiadores y condensadores. No motor.</p>
+        <p class="also reveal"><strong>Y también:</strong></p>
+        <ul class="tags reveal" aria-label="Otras piezas">
+          <li>Espejos</li><li>Parrillas</li><li>Cofres</li><li>Salpicaderas</li><li>Puertas</li><li>Tolvas</li><li>Molduras</li><li>Manijas</li><li>Radiadores</li><li>Condensadores</li><li>Motoventiladores</li>
+        </ul>
+        <p class="note reveal"><strong>¿Original o genérica?</strong> La mayoría son de reemplazo (genéricas, muchas de fabricación taiwanesa) y también conseguimos algunas originales. Siempre te decimos cuál es cuál.</p>
       </div>
 
-      <div class="brands reveal" aria-label="Marcas">
-        <p class="brands__title">Para unas 40 marcas, como:</p>
+      <div class="brands reveal" aria-labelledby="t-marcas">
+        <p class="brands__title" id="t-marcas">Para unas 40 marcas, como:</p>
         <div class="marquee">
           <ul class="marquee__track">
             <li>Nissan</li><li>Chevrolet</li><li>VW</li><li>Toyota</li><li>Honda</li><li>Ford</li><li>Kia</li><li>Hyundai</li><li>Mazda</li><li>Dodge</li><li>BYD</li><li>MG</li><li>Chirey</li><li>Camiones</li>
@@ -183,54 +257,187 @@
       </div>
     </section>
 
-    <section class="sec sec--orange" aria-labelledby="t-barato">
-      <div class="wrap narrow">
-        <h2 id="t-barato" class="reveal">¿Por qué tan barato?</h2>
-        <p class="big reveal">Muchas de nuestras piezas traen un <strong>detalle estético</strong>: un rayón, un raspón o un golpecito. Por eso cuestan bastante menos.</p>
-        <p class="big reveal">No te escondemos nada. <strong>Antes de venderte, te enseñamos el detalle</strong> con fotos o video. Tú decides si te sirve.</p>
+    <!-- ===== Cómo trabajamos ===== -->
+    <section class="sec sec--orange" id="como-compras" aria-labelledby="t-como">
+      <div class="wrap">
+        <h2 id="t-como" class="reveal">Cómo trabajamos</h2>
+        <p class="big reveal narrow-text">¿Por qué tan barato? Porque muchas de nuestras piezas traen un <strong>detalle estético</strong>: un rayón, un raspón o un golpecito. No son de deshuesadero; nos llegan de distribuidor. Y <strong>antes de venderte, te enseñamos el detalle</strong> con fotos o video. Tú decides.</p>
+
+        <div class="kinds">
+          <article class="kind reveal">
+            <p class="kind__tag">Lo más común</p>
+            <h3>Con detalle</h3>
+            <p>Trae algo estético que muchas veces ni se nota ya instalada o se arregla al pintar. Es la más barata.</p>
+          </article>
+          <article class="kind kind--alt reveal">
+            <p class="kind__tag">Cuando llega</p>
+            <h3>En muy buen estado</h3>
+            <p>Sin detalles a la vista. Cuesta un poco más, pero sigue abajo del precio de lista.</p>
+          </article>
+        </div>
+
+        <h3 class="h3-big reveal">Así compras</h3>
         <ol class="steps">
-          <li class="step reveal"><span class="step__n" aria-hidden="true">1</span><span>Nos dices qué pieza y para qué carro.</span></li>
+          <li class="step reveal"><span class="step__n" aria-hidden="true">1</span><span>Nos dices qué pieza y para qué carro: marca, modelo y año.</span></li>
           <li class="step reveal"><span class="step__n" aria-hidden="true">2</span><span>Te mandamos fotos, el detalle y el precio.</span></li>
-          <li class="step reveal"><span class="step__n" aria-hidden="true">3</span><span>Si te late, es tuya. Si no, sin compromiso.</span></li>
+          <li class="step reveal"><span class="step__n" aria-hidden="true">3</span><span>Si te late, es tuya: pasas al local o te la enviamos. Si no, sin compromiso.</span></li>
         </ol>
+
+        <!-- Cotizador: arma el mensaje de WhatsApp con los datos completos -->
+        <form class="quote reveal" id="cotizador" action="https://wa.me/523335044838" method="get" target="_blank" aria-labelledby="t-cotizador" novalidate>
+          <h3 id="t-cotizador">Arma tu cotización</h3>
+          <p class="quote__sub">Llena lo que sepas y te abrimos WhatsApp con el mensaje listo. Así te contestamos más rápido.</p>
+          <div class="quote__grid">
+            <label class="field">
+              <span>¿Qué pieza?</span>
+              <select name="pieza" required>
+                <option value="">Elige una</option>
+                <option>Faro</option><option>Faro de niebla</option><option>Fascia delantera</option><option>Fascia trasera</option><option>Defensa</option><option>Calavera</option><option>Marco de radiador</option><option>Espejo</option><option>Parrilla</option><option>Cofre</option><option>Salpicadera</option><option>Puerta</option><option>Tolva</option><option>Moldura</option><option>Manija</option><option>Radiador</option><option>Condensador</option><option>Motoventilador</option><option>Otra</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Lado</span>
+              <select name="lado">
+                <option value="">No aplica / no sé</option>
+                <option value="lado piloto (izquierdo)">Piloto (izquierdo)</option>
+                <option value="lado copiloto (derecho)">Copiloto (derecho)</option>
+                <option value="los dos lados">Los dos</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Marca y modelo</span>
+              <input name="modelo" type="text" autocomplete="off" placeholder="Ej. Nissan Versa" required>
+            </label>
+            <label class="field">
+              <span>Año</span>
+              <input name="anio" type="text" inputmode="numeric" maxlength="9" autocomplete="off" placeholder="Ej. 2018">
+            </label>
+            <label class="field field--wide">
+              <span>¿Te la enviamos? Pon tu ciudad (opcional)</span>
+              <input name="ciudad" type="text" autocomplete="address-level2" placeholder="Si pasas al local, déjalo vacío">
+            </label>
+          </div>
+          <p class="quote__err" role="alert" hidden>Dinos al menos qué pieza y la marca y modelo.</p>
+          <button class="btn btn--wa" type="submit" data-evento="wa-cotizador"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Mandar por WhatsApp</button>
+        </form>
       </div>
     </section>
 
-    <section class="sec sec--green" aria-labelledby="t-visitanos">
+    <!-- ===== Pagos y factura ===== -->
+    <section class="sec sec--yellow" id="pagos" aria-labelledby="t-pagos">
+      <div class="wrap pay">
+        <div>
+          <h2 id="t-pagos" class="reveal">Pagos y factura</h2>
+          <p class="big reveal">Paga como te acomode. <strong>Sí facturamos</strong>: pídela al momento de comprar.</p>
+        </div>
+        <ul class="tags tags--big reveal" aria-label="Formas de pago">
+          <li>Efectivo</li><li>Transferencia</li><li>Tarjeta</li><li>Mercado Pago</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Envíos ===== -->
+    <section class="sec sec--blue" id="envios" aria-labelledby="t-envios">
       <div class="wrap">
-        <h2 id="t-visitanos" class="reveal">Visítanos</h2>
+        <div class="ship">
+          <svg class="truck reveal" viewBox="0 0 120 70" aria-hidden="true"><rect x="4" y="12" width="66" height="40" rx="6" fill="#FDF204" stroke="#111" stroke-width="4"/><path d="M70 24h24l16 16v12H70Z" fill="#FD650A" stroke="#111" stroke-width="4" stroke-linejoin="round"/><path d="M78 30h14l8 9H78Z" fill="#fff" stroke="#111" stroke-width="3" stroke-linejoin="round"/><circle cx="26" cy="56" r="9" fill="#111"/><circle cx="26" cy="56" r="3.5" fill="#fff"/><circle cx="92" cy="56" r="9" fill="#111"/><circle cx="92" cy="56" r="3.5" fill="#fff"/><path d="M18 26h30M18 36h20" stroke="#111" stroke-width="4" stroke-linecap="round"/></svg>
+          <div>
+            <h2 id="t-envios" class="reveal">Envíos a todo México</h2>
+            <p class="big reveal">¿No estás en Guadalajara? Te la mandamos por paquetería. El costo depende del tamaño de la pieza y de tu ciudad.</p>
+          </div>
+        </div>
+        <p class="ship__t reveal">Trabajamos con:</p>
+        <ul class="tags tags--dark reveal" aria-label="Paqueterías">
+          <li>PMM</li><li>Paquete Express</li><li>Gran Cañón</li><li>Tiny Pack</li><li>HGR</li><li>y otras</li>
+        </ul>
+        <ol class="steps steps--ship">
+          <li class="step reveal"><span class="step__n" aria-hidden="true">1</span><span>Cotiza la pieza y dinos tu ciudad.</span></li>
+          <li class="step reveal"><span class="step__n" aria-hidden="true">2</span><span>Te damos el precio de la pieza más el envío.</span></li>
+          <li class="step reveal"><span class="step__n" aria-hidden="true">3</span><span>Pagas y la mandamos por la paquetería que más te convenga.</span></li>
+        </ol>
+        <a class="btn btn--wa reveal" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza%20con%20env%C3%ADo%20a%20mi%20ciudad." target="_blank" rel="noopener" data-evento="wa-envios"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Cotiza con envío</a>
+      </div>
+    </section>
+
+    <!-- ===== Contacto ===== -->
+    <section class="sec sec--green" id="contacto" aria-labelledby="t-contacto">
+      <div class="wrap">
+        <h2 id="t-contacto" class="reveal">Visítanos o escríbenos</h2>
         <p class="sub reveal">Dos locales en Guadalajara. Ven a ver tu pieza en persona.</p>
         <div class="places">
           <article class="place reveal">
             <h3>San Carlos</h3>
             <address>C. José Luis Verdía 835, San Carlos,<br>44460 Guadalajara, Jal.</address>
-            <a class="btn btn--blue" href="https://www.google.com/maps/search/?api=1&amp;query=C.%20Jos%C3%A9%20Luis%20Verd%C3%ADa%20835%2C%20San%20Carlos%2C%2044460%20Guadalajara%2C%20Jal." target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Cómo llegar<span class="sr-only"> al local de San Carlos</span></a>
+            <a class="btn btn--white" href="https://www.google.com/maps/search/?api=1&amp;query=C.%20Jos%C3%A9%20Luis%20Verd%C3%ADa%20835%2C%20San%20Carlos%2C%2044460%20Guadalajara%2C%20Jal." target="_blank" rel="noopener" data-evento="mapa-san-carlos"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Cómo llegar<span class="sr-only"> al local de San Carlos</span></a>
           </article>
           <article class="place reveal">
             <h3>5 de Febrero</h3>
             <address>Av. 5 de Febrero 268,<br>Guadalajara, Jal.</address>
-            <a class="btn btn--blue" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%205%20de%20Febrero%20268%2C%20Guadalajara%2C%20Jal." target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Cómo llegar<span class="sr-only"> al local de 5 de Febrero</span></a>
+            <a class="btn btn--white" href="https://www.google.com/maps/search/?api=1&amp;query=Av.%205%20de%20Febrero%20268%2C%20Guadalajara%2C%20Jal." target="_blank" rel="noopener" data-evento="mapa-5-febrero"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Cómo llegar<span class="sr-only"> al local de 5 de Febrero</span></a>
           </article>
         </div>
-        <div class="hours reveal">
-          <p class="hours__t">Horario</p>
-          <ul>
-            <li><strong>Lunes a viernes:</strong> 9:00 a.m. a 7:00 p.m.</li>
-            <li><strong>Sábado:</strong> 9:00 a.m. a 2:00 p.m.</li>
-            <li><strong>Domingo:</strong> descansamos. Si nos escribes, te contestamos el lunes en cuanto podamos.</li>
-          </ul>
+        <div class="contact">
+          <div class="hours reveal">
+            <p class="box__t"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg> Horario</p>
+            <ul>
+              <li><strong>Lunes a viernes:</strong> 9:00 a.m. a 7:00 p.m.</li>
+              <li><strong>Sábado:</strong> 9:00 a.m. a 2:00 p.m.</li>
+              <li><strong>Domingo:</strong> descansamos. Si nos escribes, te contestamos el lunes.</li>
+            </ul>
+          </div>
+          <div class="reach reveal">
+            <p class="box__t"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Contacto</p>
+            <ul>
+              <li><strong>WhatsApp:</strong> <a href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-contacto">33 3504 4838</a></li>
+              <li><strong>Línea 2:</strong> <a href="https://wa.me/523331415065?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-contacto-2">33 3141 5065</a></li>
+              <li><strong>Correo:</strong> <a href="mailto:refaccioneselcharro@gmail.com">refaccioneselcharro@gmail.com</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="sec sec--blue" aria-labelledby="t-envios">
-      <div class="wrap ship">
-        <svg class="truck reveal" viewBox="0 0 120 70" aria-hidden="true"><rect x="4" y="12" width="66" height="40" rx="6" fill="#FDF204" stroke="#111" stroke-width="4"/><path d="M70 24h24l16 16v12H70Z" fill="#FD650A" stroke="#111" stroke-width="4" stroke-linejoin="round"/><path d="M78 30h14l8 9H78Z" fill="#fff" stroke="#111" stroke-width="3" stroke-linejoin="round"/><circle cx="26" cy="56" r="9" fill="#111"/><circle cx="26" cy="56" r="3.5" fill="#fff"/><circle cx="92" cy="56" r="9" fill="#111"/><circle cx="92" cy="56" r="3.5" fill="#fff"/><path d="M18 26h30M18 36h20" stroke="#111" stroke-width="4" stroke-linecap="round"/></svg>
-        <div>
-          <h2 id="t-envios" class="reveal">Envíos a todo México</h2>
-          <p class="big reveal">¿No estás en Guadalajara? Te lo mandamos por paquetería. Pregunta el costo de envío por WhatsApp.</p>
-          <a class="btn btn--wa reveal" href="https://wa.me/523335044838?text=Hola%2C%20quiero%20cotizar%20una%20pieza%20con%20env%C3%ADo" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Cotiza con envío</a>
+    <!-- ===== Preguntas frecuentes (si cambias algo aquí, cámbialo también en el JSON-LD del <head>) ===== -->
+    <section class="sec sec--cream" id="preguntas" aria-labelledby="t-faq">
+      <div class="wrap narrow">
+        <h2 id="t-faq" class="reveal">Preguntas frecuentes</h2>
+        <div class="faq">
+          <details class="reveal">
+            <summary>¿Las piezas son nuevas o usadas?</summary>
+            <p>No son piezas de deshuesadero: nos llegan de distribuidor. Muchas traen un detalle estético (un rayón, un raspón o un golpecito) y por eso cuestan menos. Antes de venderte te mandamos fotos o video del detalle.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Son originales?</summary>
+            <p>La mayoría son de reemplazo (genéricas, muchas de fabricación taiwanesa) y también conseguimos algunas originales. Siempre te decimos cuál es cuál antes de que compres.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Cómo sé si la pieza le queda a mi carro?</summary>
+            <p>Mándanos marca, modelo, año y versión. Si es faro, calavera o espejo, dinos el lado (piloto o copiloto). Una foto de la pieza dañada o el número de parte ayuda mucho.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Hacen envíos fuera de Guadalajara?</summary>
+            <p>Sí, a todo México por paquetería: PMM, Paquete Express, Gran Cañón, Tiny Pack, HGR, entre otras. El costo depende del tamaño de la pieza y de tu ciudad; te lo cotizamos por WhatsApp.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Facturan?</summary>
+            <p>Sí. Pide tu factura al momento de la compra.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Cómo puedo pagar?</summary>
+            <p>En efectivo, transferencia, tarjeta (tenemos terminal) o Mercado Pago.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Tienen garantía?</summary>
+            <p>No manejamos garantía. Por eso te enseñamos la pieza y su detalle antes de venderla, para que compres sabiendo exactamente cómo viene.</p>
+          </details>
+          <!-- MARCADOR devoluciones: descomenta cuando definan la política (y agrégala también al JSON-LD).
+          <details class="reveal">
+            <summary>¿Aceptan devoluciones?</summary>
+            <p>Sí, dentro de [X] días, con tu nota de compra y la pieza sin instalar ni pintar.</p>
+          </details>
+          -->
         </div>
+        <p class="faq__more reveal">¿Otra duda? <a href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20una%20pregunta." target="_blank" rel="noopener" data-evento="wa-faq">Pregúntanos por WhatsApp</a>.</p>
       </div>
     </section>
   </main>
@@ -239,23 +446,25 @@
     <div class="wrap">
       <p class="foot__brand">Refacciones El Charro</p>
       <p>Talleres, hojalateros, revendedores y particulares: aquí hay pieza.</p>
-      <ul class="social social--foot" aria-label="Nuestras redes">
+      <ul class="social" aria-label="Nuestras redes">
         <li><a class="chip" href="https://www.tiktok.com/@refacciones_el_charro" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a></li>
         <li><a class="chip" href="https://www.instagram.com/refacciones_el_charro/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a></li>
         <li><a class="chip" href="https://www.youtube.com/@RefaccionesElcharro" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-yt"/></svg>YouTube</a></li>
-        <!-- <li><a class="chip" href="[LINK_FACEBOOK]" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a></li> -->
-        <!-- <li><a class="chip" href="[LINK_MERCADO_LIBRE]" target="_blank" rel="noopener">Mercado Libre</a></li> -->
+        <!-- MARCADOR: descomenta cuando tengas el link de Facebook (y agrégalo a "sameAs" en el JSON-LD)
+        <li><a class="chip" href="[LINK_FACEBOOK]" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a></li>
+        -->
+        <!-- MARCADOR: descomenta cuando tengas el link de la tienda de Mercado Libre
+        <li><a class="chip" href="[LINK_MERCADO_LIBRE]" target="_blank" rel="noopener">Mercado Libre</a></li>
+        -->
       </ul>
-      <p class="foot__wa">WhatsApp:
-        <a class="mail" href="https://wa.me/523335044838" target="_blank" rel="noopener">33 3504 4838</a> ·
-        <a class="mail" href="https://wa.me/523331415065" target="_blank" rel="noopener">33 3141 5065</a>
-      </p>
-      <p><a class="mail" href="mailto:refaccioneselcharro@gmail.com">refaccioneselcharro@gmail.com</a></p>
+      <nav class="foot__nav" aria-label="Secciones (pie de página)">
+        <a href="#nosotros">Nosotros</a> · <a href="#piezas">Piezas</a> · <a href="#como-compras">Cómo compras</a> · <a href="#envios">Envíos</a> · <a href="#contacto">Contacto</a> · <a href="#preguntas">Preguntas</a>
+      </nav>
       <p class="small">© <span id="year">2026</span> Refacciones El Charro · Guadalajara, Jalisco</p>
     </div>
   </footer>
 
-  <a class="fab" href="https://wa.me/523335044838?text=Hola%2C%20quiero%20cotizar%20una%20pieza" target="_blank" rel="noopener" aria-label="Cotiza por WhatsApp">
+  <a class="fab" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza." target="_blank" rel="noopener" aria-label="Cotiza por WhatsApp" data-evento="wa-flotante">
     <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
   </a>
 </body>

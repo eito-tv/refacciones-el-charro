@@ -1,57 +1,87 @@
-# Refacciones El Charro · landing provisional
+<div align="center">
 
-Página de una sola sección para presentar el negocio y mandar a la gente a WhatsApp y redes.
-HTML, CSS y JS sin dependencias ni build.
+<img src="assets/logo-360.webp" alt="Logo de Refacciones El Charro" width="128">
+
+# Refacciones El Charro
+
+Sitio web de un negocio familiar de refacciones de colisión en Guadalajara, Jalisco, con más de 30 años de operación.
+
+[**Ver el sitio en vivo →**](https://eito-tv.github.io/refacciones-el-charro/)
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?logo=javascript&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/hosting-GitHub%20Pages-222?logo=github)
+![Sin dependencias](https://img.shields.io/badge/dependencias-0-82cf24)
+
+</div>
+
+<p align="center">
+  <img src="docs/capturas/escritorio.webp" alt="Vista de escritorio del sitio" width="68%">
+  &nbsp;
+  <img src="docs/capturas/movil.webp" alt="Vista en celular del sitio" width="24%">
+</p>
+
+## Sobre el proyecto
+
+El negocio vendía solo en mostrador. Este sitio es el primer paso para llevarlo a internet: presenta quiénes son, qué venden, cómo trabajan y cómo comprar desde cualquier parte de México, y lleva al cliente a cotizar por WhatsApp con la información completa desde el primer mensaje.
+
+## Características
+
+- **Cotizador a WhatsApp:** el cliente elige pieza, lado, carro, año y ciudad, y se abre WhatsApp con el mensaje ya armado. Menos ida y vuelta para quien atiende.
+- **Atribución sin herramientas:** todos los botones mandan un mensaje que identifica que el cliente llegó por la página.
+- **SEO local:** datos estructurados `AutoPartsStore` y `FAQPage` (schema.org), Open Graph para compartir en redes, sitemap y página 404 propia.
+- **Accesibilidad:** HTML semántico, navegación con teclado, enlace para saltar al contenido, foco visible, áreas táctiles de 44 px y respeto a `prefers-reduced-motion`.
+- **Rendimiento:** sin frameworks ni build; logo en WebP con `srcset` y precarga, tipografía alojada en el propio sitio y animaciones solo con `transform` y `opacity`.
+- **Privacidad:** sin cookies ni rastreadores de terceros. La analítica (opcional) es sin cookies.
+- **Diseño adaptable:** pensado primero para celular, que es donde llegan los clientes.
+
+## Tecnología
+
+| Capa | Herramienta |
+|---|---|
+| Estructura | HTML5 semántico |
+| Estilos | CSS moderno (custom properties, grid, `clamp()`) |
+| Interacción | JavaScript sin dependencias (`IntersectionObserver`) |
+| Hosting | GitHub Pages |
+
+## Estructura
 
 ```
-index.html      página
-styles.css      estilos
-script.js       animación al hacer scroll + año del footer
-favicon.ico
-.nojekyll       evita que GitHub Pages procese el sitio con Jekyll
-assets/
-  logo.png              logo (respaldo PNG, 720 px)
-  logo-360.webp         logo WebP (celular)
-  logo-720.webp         logo WebP (pantallas retina / escritorio)
-  apple-touch-icon.png  ícono para iPhone
-  og-image.jpg          imagen 1200×630 que aparece al compartir el link
+├── index.html          página principal
+├── styles.css          estilos y paleta de la marca
+├── script.js           animaciones, menú activo y cotizador
+├── 404.html            página de "no encontrado"
+├── robots.txt · sitemap.xml · site.webmanifest
+├── assets/             logo, íconos, imagen para redes y tipografía
+└── docs/               capturas y guía de mantenimiento
 ```
 
-## 1. Llena los marcadores antes de publicar
+## Correr localmente
 
-Busca y reemplaza en `index.html` (Ctrl+H en VS Code):
+```bash
+git clone https://github.com/eito-tv/refacciones-el-charro.git
+cd refacciones-el-charro
+python -m http.server 8000
+# abre http://localhost:8000
+```
 
-| Marcador | Qué poner | Dónde aparece |
-|---|---|---|
-| ~~`[NUMERO_10_DIGITOS]`~~ | Ya está lleno: principal 33 3504 4838, alterno 33 3141 5065 | botones de WhatsApp, botón flotante, footer y JSON-LD |
-| ~~`[HORARIO]`~~ | Ya está lleno: L-V 9:00–19:00, sábado 9:00–14:00, domingo cerrado. Para cambiarlo, edita la sección **Visítanos** y `openingHours` en el JSON-LD (3 veces, formato `Mo-Fr 09:00-19:00`) | sección Visítanos y JSON-LD |
-| ~~`[URL_SITIO]`~~ | Ya está lleno con `https://eito-tv.github.io/refacciones-el-charro/` | canonical, Open Graph, Twitter y JSON-LD |
-| `[LINK_FACEBOOK]` | link de la página de Facebook | botones comentados en hero y footer: quita `<!--` y `-->` |
-| `[LINK_MERCADO_LIBRE]` | link de la tienda de Mercado Libre | igual que Facebook |
+Para editar contenido (teléfonos, horario, preguntas frecuentes, dominio propio) consulta la [guía de mantenimiento](docs/MANTENIMIENTO.md).
 
-Mientras un link de red siga con marcador, deja su botón comentado.
-Si tienen el código postal del local de 5 de Febrero, agrégalo al JSON-LD (`postalCode`).
+## Hoja de ruta
 
-## 2. Publicar en GitHub Pages
+- [x] Página informativa con cotizador a WhatsApp
+- [ ] Rediseño visual con estilo más profesional
+- [ ] Fotos reales del local y del surtido
+- [ ] Dominio propio
+- [ ] Catálogo de piezas por marca y modelo
+- [ ] Venta en línea
 
-1. Crea un repositorio en GitHub (público, en planes gratis) y sube **el contenido de esta carpeta** a la raíz del repo (que `index.html` quede en la raíz).
-2. En el repo: **Settings → Pages**.
-3. En *Build and deployment* → *Source*: **Deploy from a branch**. Branch: `main`, carpeta `/ (root)`. **Save**.
-4. En 1–2 minutos la página queda en `https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/`. Esa es la URL que va en `[URL_SITIO]`.
-5. Prueba cómo se ve el link al compartirlo: pégalo en un chat de WhatsApp contigo mismo. WhatsApp guarda la vista previa en caché; si cambias la imagen, cambia el nombre del archivo (ej. `og-image-2.jpg`).
+## Derechos
 
-## 3. Conectar un dominio propio (más adelante)
+© Refacciones El Charro. El logo, los textos y las imágenes son propiedad del negocio y no tienen licencia de uso libre.
+La tipografía Lilita One se distribuye bajo la [SIL Open Font License 1.1](https://openfontlicense.org).
 
-1. Compra el dominio (ej. `refaccioneselcharro.com.mx`).
-2. En **Settings → Pages → Custom domain** escribe el dominio y guarda. GitHub crea un archivo `CNAME` en el repo.
-3. En el panel de tu proveedor de dominio:
-   - Para `www`: registro **CNAME** `www` → `TU-USUARIO.github.io`
-   - Para el dominio sin www: registros **A** a `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-4. Cuando el DNS propague (minutos a 24 h), activa **Enforce HTTPS** en Settings → Pages.
-5. Cambia `[URL_SITIO]` (o la URL vieja de github.io) por el dominio nuevo en `index.html`.
+---
 
-## Notas
-
-- Sin cookies, sin analítica y sin formularios.
-- La tipografía de títulos (Lilita One) se carga desde Google Fonts. Si se quiere cero peticiones a terceros, se puede descargar el `.woff2` a `assets/` y cambiar el `<link>` por un `@font-face` local.
-- No se publica ninguna ubicación aparte de los dos locales.
+<sub>Desarrollado por [@eito-tv](https://github.com/eito-tv).</sub>

@@ -1,0 +1,12 @@
+{
+  "name": "Refacciones El Charro",
+  "short_name": "El Charro",
+  "lang": "es-MX",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#82cf24",
+  "theme_color": "#82cf24",
+  "icons": [
+    { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
