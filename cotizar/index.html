@@ -23,10 +23,10 @@
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="manifest" href="../site.webmanifest">
   <link rel="preload" as="font" type="font/woff2" href="../assets/lilita-one.woff2" crossorigin>
-  <link rel="stylesheet" href="../styles.css?v=6">
+  <link rel="stylesheet" href="../styles.css?v=7">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="../script.js?v=6" defer></script>
-  <script src="cotizar.js?v=6" defer></script>
+  <script src="../script.js?v=7" defer></script>
+  <script src="cotizar.js?v=7" defer></script>
   <!-- MARCADOR analítica: el mismo script que en la página de inicio -->
 </head>
 <body class="page-cotizar">
@@ -138,17 +138,78 @@
             <legend><span class="qstep__n" aria-hidden="true">3</span> ¿Cómo la recoges?</legend>
             <div class="seg seg--2" role="radiogroup" aria-label="Entrega">
               <label><input type="radio" name="entrega" value="local" checked><span>Paso al local</span></label>
-              <label><input type="radio" name="entrega" value="envio"><span>Envío a mi ciudad</span></label>
+              <label><input type="radio" name="entrega" value="envio"><span>Envío por paquetería</span></label>
             </div>
-            <div class="qgrid" id="wrap-envio" hidden>
-              <label class="field">
-                <span>Ciudad y estado</span>
-                <input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" placeholder="Ej. Monterrey, N.L." maxlength="60">
-              </label>
-              <label class="field">
-                <span>Código postal <small>(opcional)</small></span>
-                <input id="cp" name="cp" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="Ej. 64000" maxlength="5">
-              </label>
+
+            <div class="qsub" id="wrap-local">
+              <p class="q-label">¿A qué local? <small>(opcional)</small></p>
+              <div class="seg" role="radiogroup" aria-label="Local">
+                <label><input type="radio" name="local" value="San Carlos"><span>San Carlos</span></label>
+                <label><input type="radio" name="local" value="5 de Febrero"><span>5 de Febrero</span></label>
+              </div>
+            </div>
+
+            <div class="qsub" id="wrap-envio" hidden>
+              <p class="q-help">Con estos datos sacamos la guía con cualquier paquetería.</p>
+              <p class="q-label">¿Dónde la recibes?</p>
+              <div class="seg" role="radiogroup" aria-label="Dónde la recibes">
+                <label><input type="radio" name="recibe" value="domicilio" checked><span>En mi domicilio</span></label>
+                <label><input type="radio" name="recibe" value="ocurre"><span>En sucursal (ocurre)</span></label>
+              </div>
+              <p class="q-help" id="help-ocurre" hidden>Ocurre: la paquetería guarda la caja en su sucursal y tú pasas por ella con tu identificación. A veces sale más barato.</p>
+              <div class="qgrid">
+                <label class="field field--wide">
+                  <span>Nombre completo de quien recibe</span>
+                  <input id="e-nombre" type="text" autocomplete="name" maxlength="70" placeholder="Ej. Juan Pérez López">
+                </label>
+                <label class="field">
+                  <span>Teléfono de quien recibe</span>
+                  <input id="e-tel" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="14" placeholder="10 dígitos">
+                </label>
+                <label class="field">
+                  <span>Código postal</span>
+                  <input id="e-cp" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="Ej. 64000">
+                </label>
+                <label class="field">
+                  <span>Estado</span>
+                  <select id="e-estado" autocomplete="address-level1"></select>
+                </label>
+                <label class="field">
+                  <span>Ciudad o municipio</span>
+                  <input id="e-ciudad" type="text" autocomplete="address-level2" maxlength="60" placeholder="Ej. Monterrey">
+                </label>
+                <label class="field field--wide q-dom">
+                  <span>Calle y número</span>
+                  <input id="e-calle" type="text" autocomplete="address-line1" maxlength="90" placeholder="Ej. Av. Juárez 123, int. 4">
+                </label>
+                <label class="field q-dom">
+                  <span>Colonia</span>
+                  <input id="e-colonia" type="text" autocomplete="address-line2" maxlength="60" placeholder="Ej. Centro">
+                </label>
+                <label class="field q-dom">
+                  <span>Referencias <small>(opcional)</small></span>
+                  <input id="e-ref" type="text" autocomplete="off" maxlength="120" placeholder="Ej. entre Hidalgo y Morelos, portón negro">
+                </label>
+                <label class="field">
+                  <span>Paquetería <small>(opcional)</small></span>
+                  <select id="e-paq"></select>
+                </label>
+                <label class="field" id="wrap-paq-otra" hidden>
+                  <span>¿Cuál paquetería?</span>
+                  <input id="e-paq-otra" type="text" autocomplete="off" maxlength="40" placeholder="Ej. Estafeta">
+                </label>
+              </div>
+              <p class="q-label">¿Tienes convenio o número de cliente con la paquetería?</p>
+              <div class="seg seg--2" role="radiogroup" aria-label="Convenio con paquetería">
+                <label><input type="radio" name="convenio" value="no" checked><span>No</span></label>
+                <label><input type="radio" name="convenio" value="si"><span>Sí</span></label>
+              </div>
+              <div class="qgrid" id="wrap-convenio" hidden>
+                <label class="field">
+                  <span>Número de convenio o cliente</span>
+                  <input id="e-convenio" type="text" autocomplete="off" maxlength="40" placeholder="Ej. 123456">
+                </label>
+              </div>
             </div>
             <p class="qerr" id="err-envio" role="alert" hidden></p>
           </fieldset>
@@ -161,11 +222,13 @@
                 <span>Tu nombre</span>
                 <input id="nombre" name="nombre" type="text" autocomplete="given-name" placeholder="Ej. Juan" maxlength="40">
               </label>
-              <label class="field field--wide">
-                <span>Algún detalle</span>
-                <input id="detalle" name="detalle" type="text" autocomplete="off" placeholder="Ej. faro con LED, versión Advance, número de parte…" maxlength="140">
-              </label>
             </div>
+            <p class="q-label">¿Necesitas factura?</p>
+            <div class="seg seg--2" role="radiogroup" aria-label="Factura">
+              <label><input type="radio" name="factura" value="no" checked><span>No</span></label>
+              <label><input type="radio" name="factura" value="si"><span>Sí</span></label>
+            </div>
+            <p class="q-help" id="help-factura" hidden>Después de enviar el mensaje, manda tu constancia de situación fiscal en el mismo chat.</p>
           </fieldset>
 
           <!-- Vista previa -->
@@ -243,6 +306,17 @@
         <p class="q-label">¿De qué lado?</p>
         <p class="q-help">Viéndolo sentado al volante: <strong>piloto</strong> es tu lado (izquierdo) y <strong>copiloto</strong> el del acompañante (derecho).</p>
         <div class="seg q-lado" role="radiogroup" aria-label="Lado"></div>
+      </div>
+      <div class="q-wrap-det" hidden>
+        <div class="q-det-box">
+          <p class="q-label q-det-t"></p>
+          <p class="q-help">Elige las que apliquen. Si no sabes, déjalo así.</p>
+          <div class="checks q-det" role="group"></div>
+        </div>
+        <label class="field q-nota-wrap">
+          <span class="q-nota-t">¿Algún otro detalle? <small>(opcional)</small></span>
+          <input class="q-nota" type="text" autocomplete="off" maxlength="100">
+        </label>
       </div>
     </li>
   </template>

@@ -28,7 +28,7 @@ El negocio vendía solo en mostrador. Este sitio es el primer paso para llevarlo
 
 ## Características
 
-- **Página de cotización (`/cotizar/`):** marca y modelo de listas (o escritos si no aparecen), año y una o varias piezas elegidas en mosaicos. Según la pieza pregunta solo lo que aplica: lado para faros y calaveras, delantera o trasera para fascias y defensas, ambas para puertas. Marca cada paso completo, muestra el mensaje antes de enviarlo, guarda el avance en el navegador del cliente y abre WhatsApp con todo listo.
+- **Página de cotización (`/cotizar/`):** marca y modelo de listas (o escritos si no aparecen), año y una o varias piezas elegidas en mosaicos. Según la pieza pregunta solo lo que aplica (lado, delantera o trasera) y su tipo (por ejemplo, faro LED o con lupa). Para envíos pide los datos que usa cualquier paquetería, a domicilio u ocurre, con el estado sugerido a partir del código postal. Marca cada paso completo, muestra el mensaje antes de enviarlo, guarda el avance en el navegador del cliente y abre WhatsApp con todo listo.
 - **Navegación:** menú tipo panel en celular y enlaces con indicador de sección en escritorio; barra inferior para cotizar que aparece al bajar.
 - **Atribución sin herramientas:** todos los botones mandan un mensaje que identifica que el cliente llegó por la página.
 - **SEO local:** datos estructurados `AutoPartsStore` y `FAQPage` (schema.org), Open Graph para compartir en redes, sitemap y página 404 propia.

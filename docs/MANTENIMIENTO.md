@@ -26,7 +26,7 @@ assets/
 | Qué | Dónde |
 |---|---|
 | Número de WhatsApp | Busca `523335044838` en `index.html`, `cotizar/index.html`, `cotizar/cotizar.js` y `404.html` |
-| Marcas, modelos y piezas del cotizador | Listas `MARCAS`, `MODELOS` y `PIEZAS` al inicio de `cotizar/cotizar.js` (en `PIEZAS`, `lado` pregunta izquierdo/derecho y `pos` delantera/trasera) |
+| Marcas, modelos y piezas del cotizador | Listas `MARCAS`, `MODELOS` y `PIEZAS` al inicio de `cotizar/cotizar.js` (en `PIEZAS`: `lado` pregunta izquierdo/derecho, `pos` delantera/trasera, `det` las opciones de "¿Qué tipo…?" y `nota` el ejemplo del detalle). Paqueterías en `PAQUETERIAS` |
 | Horario | Sección `id="contacto"` y `openingHoursSpecification` en el JSON-LD |
 | Preguntas frecuentes | Sección `id="preguntas"` **y** el bloque `FAQPage` del JSON-LD (deben decir lo mismo) |
 | Paqueterías | Sección `id="envios"` y la pregunta de envíos |
