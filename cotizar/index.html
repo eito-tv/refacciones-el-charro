@@ -23,10 +23,10 @@
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="manifest" href="../site.webmanifest">
   <link rel="preload" as="font" type="font/woff2" href="../assets/lilita-one.woff2" crossorigin>
-  <link rel="stylesheet" href="../styles.css?v=5">
+  <link rel="stylesheet" href="../styles.css?v=6">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="../script.js?v=5" defer></script>
-  <script src="cotizar.js?v=5" defer></script>
+  <script src="../script.js?v=6" defer></script>
+  <script src="cotizar.js?v=6" defer></script>
   <!-- MARCADOR analítica: el mismo script que en la página de inicio -->
 </head>
 <body class="page-cotizar">
@@ -46,25 +46,37 @@
     <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
   </svg>
 
-  <header class="top">
+  <header class="top" id="top">
     <div class="top__inner wrap">
       <a class="top__brand" href="../" aria-label="Refacciones El Charro, ir al inicio">
-        <img src="../assets/logo-360.webp" width="40" height="40" alt="">
-        <span>El Charro</span>
+        <img src="../assets/logo-360.webp" width="44" height="44" alt="">
+        <span class="top__name"><strong>El Charro</strong><small>Refacciones de colisión</small></span>
       </a>
-      <nav class="top__nav" aria-label="Secciones">
-        <ul>
+      <nav class="top__nav" id="menu" aria-label="Secciones">
+        <ul class="top__links">
           <li><a href="../#nosotros">Nosotros</a></li>
           <li><a href="../#piezas">Piezas</a></li>
-          <li><a class="nav-cta" href="./" aria-current="page">Cotiza</a></li>
           <li><a href="../#envios">Envíos</a></li>
           <li><a href="../#contacto">Contacto</a></li>
           <li><a href="../#preguntas">Preguntas</a></li>
         </ul>
+        <div class="top__extra">
+        <p class="top__extra-t">Síguenos</p>
+          <ul class="social social--menu" aria-label="Nuestras redes (menú)">
+            <li><a class="chip chip--fb" href="https://www.facebook.com/profile.php?id=61596676535445" target="_blank" rel="noopener" data-evento="red-facebook-menu"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a></li>
+            <li><a class="chip chip--tt" href="https://www.tiktok.com/@refacciones_el_charro" target="_blank" rel="noopener" data-evento="red-tiktok-menu"><svg class="ico" aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a></li>
+            <li><a class="chip chip--ig" href="https://www.instagram.com/refacciones_el_charro/" target="_blank" rel="noopener" data-evento="red-instagram-menu"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a></li>
+            <li><a class="chip chip--yt" href="https://www.youtube.com/@RefaccionesElcharro" target="_blank" rel="noopener" data-evento="red-youtube-menu"><svg class="ico" aria-hidden="true"><use href="#i-yt"/></svg>YouTube</a></li>
+          </ul>
+          <p class="top__extra-wa">WhatsApp: <a href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-menu">33 3504 4838</a> · <a href="https://wa.me/523331415065?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-menu-2">33 3141 5065</a></p>
+        </div>
       </nav>
-      <a class="top__wa" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-barra-cotizar">
-        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span>
+      <a class="top__wa" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-barra" aria-label="WhatsApp 33 3504 4838">
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>33 3504 4838</span>
       </a>
+      <button class="top__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -109,6 +121,7 @@
                 <select id="anio" name="anio"></select>
               </label>
             </div>
+            <p class="q-help">¿No sabes el año exacto? Elige el más cercano o “No sé el año”.</p>
             <p class="qerr" id="err-carro" role="alert" hidden></p>
           </fieldset>
 
@@ -162,11 +175,18 @@
             <p class="qpreview__tip">Si tienes foto de la pieza dañada o el número de parte, mándala en el mismo chat.</p>
           </div>
 
+          <div class="qdone" id="qdone" hidden tabindex="-1">
+            <p class="qdone__t"><span aria-hidden="true">✓</span> ¡Listo! Abrimos WhatsApp con tu cotización.</p>
+            <p>Solo falta darle <strong>enviar</strong> en el chat. ¿No se abrió? <a id="qdone-link" href="#" target="_blank" rel="noopener">Ábrelo aquí</a>.</p>
+            <button type="button" class="btn btn--white" id="qnew">Hacer otra cotización</button>
+          </div>
+
           <div class="qsend">
             <button class="btn btn--wa btn--xl qsend__btn" type="submit" data-evento="wa-cotizador">
               <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Mandar por WhatsApp
             </button>
           </div>
+            <p class="qsend__note">Tus datos solo se guardan en este teléfono para que no los vuelvas a escribir. <button type="button" class="linkbtn" id="qclear">Borrar mis datos</button></p>
         </form>
 
         <aside class="qinfo" aria-labelledby="t-asi">
@@ -198,15 +218,22 @@
     <li class="qitem">
       <div class="qitem__head">
         <span class="qitem__n"></span>
-        <button type="button" class="qitem__del" aria-label="Quitar esta pieza"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+        <button type="button" class="qitem__del"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg><span>Quitar</span></button>
       </div>
-      <label class="field">
-        <span>¿Qué pieza?</span>
-        <select class="q-pieza" required></select>
-      </label>
+      <div class="q-pick">
+        <p class="q-label">¿Qué pieza?</p>
+        <div class="tiles q-tiles" role="radiogroup" aria-label="Pieza"></div>
+        <button type="button" class="q-more" aria-expanded="false">Ver más piezas</button>
+      </div>
+      <div class="q-chosen" hidden>
+        <span class="q-chosen__ico" aria-hidden="true">✓</span>
+        <span class="q-chosen__name"></span>
+        <button type="button" class="q-change">Cambiar</button>
+      </div>
       <label class="field q-wrap-otra" hidden>
-        <span>¿Cuál pieza?</span>
-        <input class="q-otra" type="text" autocomplete="off" placeholder="Ej. guía de fascia" maxlength="60">
+        <span>Descríbela</span>
+        <input class="q-otra" type="text" autocomplete="off" placeholder="Ej. la guía de la fascia, el soporte del faro…" maxlength="80">
+        <small class="q-help">Si no sabes el nombre, descríbela como puedas y manda foto en el chat.</small>
       </label>
       <div class="q-wrap-pos" hidden>
         <p class="q-label">¿Delantera o trasera?</p>
@@ -214,6 +241,7 @@
       </div>
       <div class="q-wrap-lado" hidden>
         <p class="q-label">¿De qué lado?</p>
+        <p class="q-help">Viéndolo sentado al volante: <strong>piloto</strong> es tu lado (izquierdo) y <strong>copiloto</strong> el del acompañante (derecho).</p>
         <div class="seg q-lado" role="radiogroup" aria-label="Lado"></div>
       </div>
     </li>

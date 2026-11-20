@@ -32,24 +32,49 @@
     }, { passive: true });
   }
 
-  // Menú: marca la sección en la que va el usuario.
-  // Ojo: no usar scrollIntoView aquí; en celular mueve toda la página y la deja atorada.
-  // Solo se desplaza la barra del menú, de lado.
-  var nav = document.querySelector('.top__nav');
-  var links = document.querySelectorAll('.top__nav a');
-  var pendiente = null, quieto;
-  function centrarEnMenu(a) { pendiente = a; }
-  // Solo se mueve el menú cuando la persona deja de hacer scroll, para no competir con su dedo.
+  // ---------- Menú ----------
+  var root = document.documentElement;
+  var top = document.getElementById('top');
+  var burger = document.querySelector('.top__burger');
+  var menu = document.getElementById('menu');
+  function abrirMenu(abrir) {
+    if (!burger) return;
+    root.classList.toggle('menu-open', abrir);
+    burger.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+    burger.setAttribute('aria-label', abrir ? 'Cerrar menú' : 'Abrir menú');
+    if (abrir) { var f = menu.querySelector('a'); if (f) f.focus({ preventScroll: true }); }
+  }
+  if (burger && menu) {
+    burger.addEventListener('click', function () { abrirMenu(burger.getAttribute('aria-expanded') !== 'true'); });
+    menu.addEventListener('click', function (e) { if (e.target.closest('a')) abrirMenu(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && root.classList.contains('menu-open')) { abrirMenu(false); burger.focus(); }
+    });
+    window.matchMedia('(min-width: 960px)').addEventListener('change', function (m) { if (m.matches) abrirMenu(false); });
+  }
+
+  // Sombra de la barra al hacer scroll y barra inferior de "Cotiza" (celular)
+  var actionbar = document.getElementById('actionbar');
+  var cta = document.getElementById('cta-hero');
+  var ticking = false;
+  function alScroll() {
+    ticking = false;
+    if (top) top.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
   window.addEventListener('scroll', function () {
-    clearTimeout(quieto);
-    quieto = setTimeout(function () {
-      if (!pendiente || !nav || nav.scrollWidth <= nav.clientWidth) return;
-      var n = nav.getBoundingClientRect();
-      var r = pendiente.getBoundingClientRect();
-      nav.scrollLeft = Math.max(0, nav.scrollLeft + (r.left - n.left) - (n.width - r.width) / 2);
-      pendiente = null;
-    }, 180);
+    if (!ticking) { ticking = true; requestAnimationFrame(alScroll); }
   }, { passive: true });
+  alScroll();
+  if (actionbar && cta && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      var e = entries[0];
+      // Se muestra cuando el botón principal ya quedó arriba (no antes de llegar a él)
+      actionbar.classList.toggle('is-visible', !e.isIntersecting && e.boundingClientRect.top < 0);
+    }).observe(cta);
+  }
+
+  // Marca en el menú la sección en la que va el usuario (no mueve la página)
+  var links = document.querySelectorAll('.top__links a');
   if ('IntersectionObserver' in window && links.length) {
     var byId = {};
     var activo = null;
@@ -60,18 +85,15 @@
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
-        var a = byId[e.target.id];
-        if (!a || a === activo) return;
+        var a = byId[e.target.id] || null;
+        if (a === activo) return;
         if (activo) activo.removeAttribute('aria-current');
-        a.setAttribute('aria-current', 'true');
+        if (a) a.setAttribute('aria-current', 'true');
         activo = a;
-        centrarEnMenu(a);
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    Object.keys(byId).forEach(function (id) {
-      var s = document.getElementById(id);
-      if (s) spy.observe(s);
-    });
+    // También se observan secciones sin enlace (inicio, por qué tan barato, pagos) para limpiar la marca
+    document.querySelectorAll('main > section[id]').forEach(function (s) { spy.observe(s); });
   }
 
   // Carrusel de marcas: se pausa cuando no está en pantalla (ahorra batería y CPU)

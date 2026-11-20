@@ -34,9 +34,9 @@
 
   <link rel="preload" as="font" type="font/woff2" href="assets/lilita-one.woff2" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="assets/logo-720.webp" imagesrcset="assets/logo-360.webp 360w, assets/logo-720.webp 720w" imagesizes="(min-width: 900px) 380px, 56vw" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="script.js?v=5" defer></script>
+  <script src="script.js?v=6" defer></script>
   <!-- MARCADOR analítica: pega aquí el script de Cloudflare Web Analytics o GoatCounter (ver README) -->
 
   <script type="application/ld+json">
@@ -135,25 +135,38 @@
   </svg>
 
   <!-- Barra superior fija -->
-  <header class="top">
+  <header class="top" id="top">
     <div class="top__inner wrap">
       <a class="top__brand" href="#inicio" aria-label="Refacciones El Charro, ir al inicio">
-        <img src="assets/logo-360.webp" width="40" height="40" alt="">
-        <span>El Charro</span>
+        <img src="assets/logo-360.webp" width="44" height="44" alt="">
+        <span class="top__name"><strong>El Charro</strong><small>Refacciones de colisión</small></span>
       </a>
-      <nav class="top__nav" aria-label="Secciones">
-        <ul>
+      <nav class="top__nav" id="menu" aria-label="Secciones">
+        <ul class="top__links">
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#piezas">Piezas</a></li>
-          <li><a class="nav-cta" href="cotizar/">Cotiza</a></li>
           <li><a href="#envios">Envíos</a></li>
           <li><a href="#contacto">Contacto</a></li>
           <li><a href="#preguntas">Preguntas</a></li>
         </ul>
+        <div class="top__extra">
+        <a class="btn btn--wa top__cta" href="cotizar/" data-evento="ir-cotizar-menu">Cotiza tu pieza <span aria-hidden="true">→</span></a>
+        <p class="top__extra-t">Síguenos</p>
+          <ul class="social social--menu" aria-label="Nuestras redes (menú)">
+            <li><a class="chip chip--fb" href="https://www.facebook.com/profile.php?id=61596676535445" target="_blank" rel="noopener" data-evento="red-facebook-menu"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a></li>
+            <li><a class="chip chip--tt" href="https://www.tiktok.com/@refacciones_el_charro" target="_blank" rel="noopener" data-evento="red-tiktok-menu"><svg class="ico" aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a></li>
+            <li><a class="chip chip--ig" href="https://www.instagram.com/refacciones_el_charro/" target="_blank" rel="noopener" data-evento="red-instagram-menu"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a></li>
+            <li><a class="chip chip--yt" href="https://www.youtube.com/@RefaccionesElcharro" target="_blank" rel="noopener" data-evento="red-youtube-menu"><svg class="ico" aria-hidden="true"><use href="#i-yt"/></svg>YouTube</a></li>
+          </ul>
+          <p class="top__extra-wa">WhatsApp: <a href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-menu">33 3504 4838</a> · <a href="https://wa.me/523331415065?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-menu-2">33 3141 5065</a></p>
+        </div>
       </nav>
-      <a class="top__wa" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza." target="_blank" rel="noopener" data-evento="wa-barra">
-        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span>
+      <a class="top__wa" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-barra" aria-label="WhatsApp 33 3504 4838">
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>33 3504 4838</span>
       </a>
+      <button class="top__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -169,17 +182,18 @@
           <p class="tag">Guadalajara · más de 30 años</p>
           <h1 id="t-inicio">Refacciones de colisión <span class="hl">a precio de remate</span></h1>
           <p class="lead">Faros, fascias, calaveras y más para unas 40 marcas. Si chocaste, aquí te sale barato. Y si no estás en Guadalajara, te la mandamos.</p>
-          <a class="btn btn--wa btn--xl" href="cotizar/" data-evento="ir-cotizar-inicio">
-            Cotiza tu pieza <span aria-hidden="true">→</span>
+          <a class="btn btn--wa btn--hero" href="cotizar/" id="cta-hero" data-evento="ir-cotizar-inicio">
+            Cotiza tu pieza <span class="arrow" aria-hidden="true">→</span>
           </a>
+          <p class="cta-sub">Toma 1 minuto · Te contestamos por WhatsApp</p>
           <p class="alt-wa">O escríbenos directo por WhatsApp: <a href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-inicio">33 3504 4838</a> · <a href="https://wa.me/523331415065?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-linea2">33 3141 5065</a></p>
           <div class="follow">
             <p class="follow__t">Síguenos en redes</p>
             <ul class="social social--hero" aria-label="Nuestras redes">
-          <li><a class="chip" href="https://www.facebook.com/profile.php?id=61596676535445" target="_blank" rel="noopener" data-evento="red-facebook-inicio"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a></li>
-          <li><a class="chip" href="https://www.tiktok.com/@refacciones_el_charro" target="_blank" rel="noopener" data-evento="red-tiktok-inicio"><svg class="ico" aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a></li>
-          <li><a class="chip" href="https://www.instagram.com/refacciones_el_charro/" target="_blank" rel="noopener" data-evento="red-instagram-inicio"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a></li>
-          <li><a class="chip" href="https://www.youtube.com/@RefaccionesElcharro" target="_blank" rel="noopener" data-evento="red-youtube-inicio"><svg class="ico" aria-hidden="true"><use href="#i-yt"/></svg>YouTube</a></li>
+          <li><a class="chip chip--fb" href="https://www.facebook.com/profile.php?id=61596676535445" target="_blank" rel="noopener" data-evento="red-facebook-inicio"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a></li>
+          <li><a class="chip chip--tt" href="https://www.tiktok.com/@refacciones_el_charro" target="_blank" rel="noopener" data-evento="red-tiktok-inicio"><svg class="ico" aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a></li>
+          <li><a class="chip chip--ig" href="https://www.instagram.com/refacciones_el_charro/" target="_blank" rel="noopener" data-evento="red-instagram-inicio"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a></li>
+          <li><a class="chip chip--yt" href="https://www.youtube.com/@RefaccionesElcharro" target="_blank" rel="noopener" data-evento="red-youtube-inicio"><svg class="ico" aria-hidden="true"><use href="#i-yt"/></svg>YouTube</a></li>
             </ul>
           </div>
         </div>
@@ -419,10 +433,10 @@
       <p class="foot__brand">Refacciones El Charro</p>
       <p>Talleres, hojalateros, revendedores y particulares: aquí hay pieza.</p>
       <ul class="social" aria-label="Nuestras redes (pie de página)">
-        <li><a class="chip" href="https://www.facebook.com/profile.php?id=61596676535445" target="_blank" rel="noopener" data-evento="red-facebook-pie"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a></li>
-        <li><a class="chip" href="https://www.tiktok.com/@refacciones_el_charro" target="_blank" rel="noopener" data-evento="red-tiktok-pie"><svg class="ico" aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a></li>
-        <li><a class="chip" href="https://www.instagram.com/refacciones_el_charro/" target="_blank" rel="noopener" data-evento="red-instagram-pie"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a></li>
-        <li><a class="chip" href="https://www.youtube.com/@RefaccionesElcharro" target="_blank" rel="noopener" data-evento="red-youtube-pie"><svg class="ico" aria-hidden="true"><use href="#i-yt"/></svg>YouTube</a></li>
+        <li><a class="chip chip--fb" href="https://www.facebook.com/profile.php?id=61596676535445" target="_blank" rel="noopener" data-evento="red-facebook-pie"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a></li>
+        <li><a class="chip chip--tt" href="https://www.tiktok.com/@refacciones_el_charro" target="_blank" rel="noopener" data-evento="red-tiktok-pie"><svg class="ico" aria-hidden="true"><use href="#i-tt"/></svg>TikTok</a></li>
+        <li><a class="chip chip--ig" href="https://www.instagram.com/refacciones_el_charro/" target="_blank" rel="noopener" data-evento="red-instagram-pie"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a></li>
+        <li><a class="chip chip--yt" href="https://www.youtube.com/@RefaccionesElcharro" target="_blank" rel="noopener" data-evento="red-youtube-pie"><svg class="ico" aria-hidden="true"><use href="#i-yt"/></svg>YouTube</a></li>
         <!-- MARCADOR: descomenta cuando tengas el link de la tienda de Mercado Libre
         <li><a class="chip" href="[LINK_MERCADO_LIBRE]" target="_blank" rel="noopener">Mercado Libre</a></li>
         -->
@@ -434,8 +448,9 @@
     </div>
   </footer>
 
-  <a class="fab" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza." target="_blank" rel="noopener" aria-label="Cotiza por WhatsApp" data-evento="wa-flotante">
-    <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>
-  </a>
+  <div class="actionbar" id="actionbar">
+    <a class="btn btn--wa actionbar__cta" href="cotizar/" data-evento="ir-cotizar-barra">Cotiza tu pieza <span aria-hidden="true">→</span></a>
+    <a class="actionbar__wa" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-evento="wa-barra-inferior"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg></a>
+  </div>
 </body>
 </html>
