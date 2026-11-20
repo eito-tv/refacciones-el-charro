@@ -6,7 +6,8 @@ HTML, CSS y JS sin dependencias ni build. Se publica con GitHub Pages.
 ```
 index.html        página
 styles.css        estilos (colores del logo)
-script.js         animaciones, menú activo, cotizador de WhatsApp y conteo de clics
+script.js         animaciones, menú activo y conteo de clics
+cotizar/          página de cotización (index.html y cotizar.js)
 404.html          página de "no encontrado"
 robots.txt        reglas para buscadores (cuenta solo con dominio propio)
 sitemap.xml       mapa del sitio para Google Search Console
@@ -24,7 +25,8 @@ assets/
 
 | Qué | Dónde |
 |---|---|
-| Número de WhatsApp | Busca `523335044838` en `index.html`, `script.js` y `404.html` |
+| Número de WhatsApp | Busca `523335044838` en `index.html`, `cotizar/index.html`, `cotizar/cotizar.js` y `404.html` |
+| Marcas, modelos y piezas del cotizador | Listas `MARCAS`, `MODELOS` y `PIEZAS` al inicio de `cotizar/cotizar.js` (en `PIEZAS`, `lado` pregunta izquierdo/derecho y `pos` delantera/trasera) |
 | Horario | Sección `id="contacto"` y `openingHoursSpecification` en el JSON-LD |
 | Preguntas frecuentes | Sección `id="preguntas"` **y** el bloque `FAQPage` del JSON-LD (deben decir lo mismo) |
 | Paqueterías | Sección `id="envios"` y la pregunta de envíos |

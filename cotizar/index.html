@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cotiza tu refacción | Refacciones El Charro</title>
+  <meta name="description" content="Cotiza faros, fascias, calaveras, defensas y más en un minuto. Elige tu carro y la pieza, y te abrimos WhatsApp con el mensaje listo. Guadalajara y envíos a todo México.">
+  <meta name="theme-color" content="#82CF24">
+  <link rel="canonical" href="https://eito-tv.github.io/refacciones-el-charro/cotizar/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="Refacciones El Charro">
+  <meta property="og:title" content="Cotiza tu refacción · Refacciones El Charro">
+  <meta property="og:description" content="Elige tu carro y la pieza, y te abrimos WhatsApp con el mensaje listo.">
+  <meta property="og:url" content="https://eito-tv.github.io/refacciones-el-charro/cotizar/">
+  <meta property="og:image" content="https://eito-tv.github.io/refacciones-el-charro/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="../favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/lilita-one.woff2" crossorigin>
+  <link rel="stylesheet" href="../styles.css?v=5">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="../script.js?v=5" defer></script>
+  <script src="cotizar.js?v=5" defer></script>
+  <!-- MARCADOR analítica: el mismo script que en la página de inicio -->
+</head>
+<body class="page-cotizar">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <!-- Íconos reutilizables -->
+  <svg width="0" height="0" class="sr-only" aria-hidden="true" focusable="false">
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" d="M7 2.8h10A4.2 4.2 0 0 1 21.2 7v10a4.2 4.2 0 0 1-4.2 4.2H7A4.2 4.2 0 0 1 2.8 17V7A4.2 4.2 0 0 1 7 2.8Z"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2.1-2.8V9.1a6.3 6.3 0 1 0 5.5 6.3V8.6a8 8 0 0 0 4.6 1.5V6.7a4.6 4.6 0 0 1-4.6-4.7Z"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.7 4.7 12 4.7 12 4.7s-6.7 0-8.5.5a2.8 2.8 0 0 0-2 2C1 9 1 12 1 12s0 3 .5 4.8a2.8 2.8 0 0 0 2 2c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5a2.8 2.8 0 0 0 2-2C23 15 23 12 23 12s0-3-.5-4.8ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1a23 23 0 0 0-2.5-.1c-2.5 0-4.2 1.5-4.2 4.3v2.3H7.3v3.2h2.8V22h3.4Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.5 4.8 4.8L19.5 7"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M3 5.5h18v13H3Z"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="m3.5 6 8.5 7 8.5-7"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2.4"/><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 7v5.3l3.4 2.2"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  </svg>
+
+  <header class="top">
+    <div class="top__inner wrap">
+      <a class="top__brand" href="../" aria-label="Refacciones El Charro, ir al inicio">
+        <img src="../assets/logo-360.webp" width="40" height="40" alt="">
+        <span>El Charro</span>
+      </a>
+      <nav class="top__nav" aria-label="Secciones">
+        <ul>
+          <li><a href="../#nosotros">Nosotros</a></li>
+          <li><a href="../#piezas">Piezas</a></li>
+          <li><a class="nav-cta" href="./" aria-current="page">Cotiza</a></li>
+          <li><a href="../#envios">Envíos</a></li>
+          <li><a href="../#contacto">Contacto</a></li>
+          <li><a href="../#preguntas">Preguntas</a></li>
+        </ul>
+      </nav>
+      <a class="top__wa" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-barra-cotizar">
+        <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="qhero" aria-labelledby="t-cotiza">
+      <div class="wrap">
+        <p class="tag">Cotización en 1 minuto</p>
+        <h1 id="t-cotiza">Cotiza tu pieza</h1>
+        <p class="lead">Elige tu carro y lo que necesitas. Al final te abrimos WhatsApp con el mensaje listo; solo le das enviar.</p>
+      </div>
+    </section>
+
+    <section class="sec sec--cream qsec" aria-label="Formulario de cotización">
+      <div class="wrap qwrap">
+        <noscript>
+          <p class="note">Para usar el cotizador activa JavaScript, o escríbenos directo por <a href="https://wa.me/523335044838">WhatsApp al 33 3504 4838</a>.</p>
+        </noscript>
+
+        <form class="qform" id="qform" novalidate>
+          <!-- 1. Carro -->
+          <fieldset class="qstep">
+            <legend><span class="qstep__n" aria-hidden="true">1</span> Tu carro</legend>
+            <div class="qgrid">
+              <label class="field">
+                <span>Marca</span>
+                <select id="marca" name="marca" required aria-describedby="err-marca"></select>
+              </label>
+              <label class="field" id="wrap-marca-txt" hidden>
+                <span>Escribe la marca</span>
+                <input id="marca-txt" name="marca_txt" type="text" autocomplete="off" placeholder="Ej. Foton" maxlength="40">
+              </label>
+              <label class="field" id="wrap-modelo-sel" hidden>
+                <span>Modelo</span>
+                <select id="modelo-sel" name="modelo_sel"></select>
+              </label>
+              <label class="field" id="wrap-modelo-txt">
+                <span>Modelo</span>
+                <input id="modelo-txt" name="modelo_txt" type="text" autocomplete="off" placeholder="Ej. Versa" maxlength="40">
+              </label>
+              <label class="field">
+                <span>Año</span>
+                <select id="anio" name="anio"></select>
+              </label>
+            </div>
+            <p class="qerr" id="err-carro" role="alert" hidden></p>
+          </fieldset>
+
+          <!-- 2. Piezas -->
+          <fieldset class="qstep">
+            <legend><span class="qstep__n" aria-hidden="true">2</span> ¿Qué pieza necesitas?</legend>
+            <ol class="qitems" id="qitems"></ol>
+            <button type="button" class="qadd" id="qadd"><span aria-hidden="true">+</span> Agregar otra pieza</button>
+            <p class="qerr" id="err-piezas" role="alert" hidden></p>
+          </fieldset>
+
+          <!-- 3. Entrega -->
+          <fieldset class="qstep">
+            <legend><span class="qstep__n" aria-hidden="true">3</span> ¿Cómo la recoges?</legend>
+            <div class="seg seg--2" role="radiogroup" aria-label="Entrega">
+              <label><input type="radio" name="entrega" value="local" checked><span>Paso al local</span></label>
+              <label><input type="radio" name="entrega" value="envio"><span>Envío a mi ciudad</span></label>
+            </div>
+            <div class="qgrid" id="wrap-envio" hidden>
+              <label class="field">
+                <span>Ciudad y estado</span>
+                <input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" placeholder="Ej. Monterrey, N.L." maxlength="60">
+              </label>
+              <label class="field">
+                <span>Código postal <small>(opcional)</small></span>
+                <input id="cp" name="cp" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="Ej. 64000" maxlength="5">
+              </label>
+            </div>
+            <p class="qerr" id="err-envio" role="alert" hidden></p>
+          </fieldset>
+
+          <!-- 4. Extras -->
+          <fieldset class="qstep">
+            <legend><span class="qstep__n" aria-hidden="true">4</span><span>Para atenderte mejor <small>(opcional)</small></span></legend>
+            <div class="qgrid">
+              <label class="field">
+                <span>Tu nombre</span>
+                <input id="nombre" name="nombre" type="text" autocomplete="given-name" placeholder="Ej. Juan" maxlength="40">
+              </label>
+              <label class="field field--wide">
+                <span>Algún detalle</span>
+                <input id="detalle" name="detalle" type="text" autocomplete="off" placeholder="Ej. faro con LED, versión Advance, número de parte…" maxlength="140">
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Vista previa -->
+          <div class="qpreview" aria-live="polite">
+            <p class="qpreview__t">Así llega tu mensaje:</p>
+            <pre id="preview"></pre>
+            <p class="qpreview__tip">Si tienes foto de la pieza dañada o el número de parte, mándala en el mismo chat.</p>
+          </div>
+
+          <div class="qsend">
+            <button class="btn btn--wa btn--xl qsend__btn" type="submit" data-evento="wa-cotizador">
+              <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Mandar por WhatsApp
+            </button>
+          </div>
+        </form>
+
+        <aside class="qinfo" aria-labelledby="t-asi">
+          <h2 id="t-asi">Así funciona</h2>
+          <ol class="steps">
+            <li class="step"><span class="step__n" aria-hidden="true">1</span><span>Mandas tu cotización por WhatsApp.</span></li>
+            <li class="step"><span class="step__n" aria-hidden="true">2</span><span>Te mandamos fotos, el detalle de la pieza y el precio.</span></li>
+            <li class="step"><span class="step__n" aria-hidden="true">3</span><span>Si te late, pasas al local o te la enviamos. Si no, sin compromiso.</span></li>
+          </ol>
+          <p class="note"><strong>¿Por qué tan barato?</strong> Muchas piezas traen un detalle estético (un rayón o un golpecito). Siempre te lo enseñamos antes de venderte.</p>
+          <p class="qinfo__alt">¿Prefieres escribir directo? <a href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-directo-cotizar">33 3504 4838</a> · <a href="https://wa.me/523331415065?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-directo-cotizar-2">33 3141 5065</a></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p class="foot__brand">Refacciones El Charro</p>
+      <p>Talleres, hojalateros, revendedores y particulares: aquí hay pieza.</p>
+      <nav class="foot__nav" aria-label="Secciones (pie de página)">
+        <a href="../">Inicio</a> · <a href="../#nosotros">Nosotros</a> · <a href="../#piezas">Piezas</a> · <a href="../#envios">Envíos</a> · <a href="../#contacto">Contacto</a> · <a href="../#preguntas">Preguntas</a>
+      </nav>
+      <p class="small">© <span id="year">2026</span> Refacciones El Charro · Guadalajara, Jalisco</p>
+    </div>
+  </footer>
+
+  <template id="tpl-item">
+    <li class="qitem">
+      <div class="qitem__head">
+        <span class="qitem__n"></span>
+        <button type="button" class="qitem__del" aria-label="Quitar esta pieza"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+      </div>
+      <label class="field">
+        <span>¿Qué pieza?</span>
+        <select class="q-pieza" required></select>
+      </label>
+      <label class="field q-wrap-otra" hidden>
+        <span>¿Cuál pieza?</span>
+        <input class="q-otra" type="text" autocomplete="off" placeholder="Ej. guía de fascia" maxlength="60">
+      </label>
+      <div class="q-wrap-pos" hidden>
+        <p class="q-label">¿Delantera o trasera?</p>
+        <div class="seg q-pos" role="radiogroup" aria-label="Delantera o trasera"></div>
+      </div>
+      <div class="q-wrap-lado" hidden>
+        <p class="q-label">¿De qué lado?</p>
+        <div class="seg q-lado" role="radiogroup" aria-label="Lado"></div>
+      </div>
+    </li>
+  </template>
+</body>
+</html>

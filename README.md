@@ -28,7 +28,7 @@ El negocio vendía solo en mostrador. Este sitio es el primer paso para llevarlo
 
 ## Características
 
-- **Cotizador a WhatsApp:** el cliente elige pieza, lado, carro, año y ciudad, y se abre WhatsApp con el mensaje ya armado. Menos ida y vuelta para quien atiende.
+- **Página de cotización (`/cotizar/`):** el cliente elige marca y modelo de listas (o los escribe si no aparecen), año y una o varias piezas. Según la pieza pregunta solo lo que aplica: lado para faros y calaveras, delantera o trasera para fascias y defensas, ambas para puertas. Muestra el mensaje antes de enviarlo y abre WhatsApp con todo listo.
 - **Atribución sin herramientas:** todos los botones mandan un mensaje que identifica que el cliente llegó por la página.
 - **SEO local:** datos estructurados `AutoPartsStore` y `FAQPage` (schema.org), Open Graph para compartir en redes, sitemap y página 404 propia.
 - **Accesibilidad:** HTML semántico, navegación con teclado, enlace para saltar al contenido, foco visible, áreas táctiles de 44 px y respeto a `prefers-reduced-motion`.
@@ -50,7 +50,8 @@ El negocio vendía solo en mostrador. Este sitio es el primer paso para llevarlo
 ```
 ├── index.html          página principal
 ├── styles.css          estilos y paleta de la marca
-├── script.js           animaciones, menú activo y cotizador
+├── script.js           animaciones y menú activo
+├── cotizar/            página de cotización (index.html + cotizar.js)
 ├── 404.html            página de "no encontrado"
 ├── robots.txt · sitemap.xml · site.webmanifest
 ├── assets/             logo, íconos, imagen para redes y tipografía

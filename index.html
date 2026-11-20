@@ -34,9 +34,9 @@
 
   <link rel="preload" as="font" type="font/woff2" href="assets/lilita-one.woff2" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="assets/logo-720.webp" imagesrcset="assets/logo-360.webp 360w, assets/logo-720.webp 720w" imagesizes="(min-width: 900px) 380px, 56vw" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="script.js?v=4" defer></script>
+  <script src="script.js?v=5" defer></script>
   <!-- MARCADOR analítica: pega aquí el script de Cloudflare Web Analytics o GoatCounter (ver README) -->
 
   <script type="application/ld+json">
@@ -145,7 +145,7 @@
         <ul>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#piezas">Piezas</a></li>
-          <li><a href="#como-compras">Cómo compras</a></li>
+          <li><a class="nav-cta" href="cotizar/">Cotiza</a></li>
           <li><a href="#envios">Envíos</a></li>
           <li><a href="#contacto">Contacto</a></li>
           <li><a href="#preguntas">Preguntas</a></li>
@@ -169,10 +169,10 @@
           <p class="tag">Guadalajara · más de 30 años</p>
           <h1 id="t-inicio">Refacciones de colisión <span class="hl">a precio de remate</span></h1>
           <p class="lead">Faros, fascias, calaveras y más para unas 40 marcas. Si chocaste, aquí te sale barato. Y si no estás en Guadalajara, te la mandamos.</p>
-          <a class="btn btn--wa btn--xl" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza." target="_blank" rel="noopener" data-evento="wa-inicio">
-            <svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Cotiza por WhatsApp
+          <a class="btn btn--wa btn--xl" href="cotizar/" data-evento="ir-cotizar-inicio">
+            Cotiza tu pieza <span aria-hidden="true">→</span>
           </a>
-          <p class="alt-wa">Línea 2: <a href="https://wa.me/523331415065?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza." target="_blank" rel="noopener" data-evento="wa-linea2">33 3141 5065</a></p>
+          <p class="alt-wa">O escríbenos directo por WhatsApp: <a href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-inicio">33 3504 4838</a> · <a href="https://wa.me/523331415065?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" data-evento="wa-linea2">33 3141 5065</a></p>
           <div class="follow">
             <p class="follow__t">Síguenos en redes</p>
             <ul class="social social--hero" aria-label="Nuestras redes">
@@ -230,21 +230,25 @@
             <svg class="pic" viewBox="0 0 80 56" aria-hidden="true"><path d="M8 14c0-5 4-8 9-8h36c11 0 21 9 21 21s-10 23-21 23H17c-5 0-9-4-9-9Z" fill="#FDF204" stroke="#111" stroke-width="4" stroke-linejoin="round"/><circle cx="50" cy="28" r="11" fill="#fff" stroke="#111" stroke-width="4"/><path d="M16 20h18M16 30h18M16 40h18" stroke="#111" stroke-width="4" stroke-linecap="round"/></svg>
             <h3>Faros</h3>
             <p>Lo primero que se rompe en un choque de frente. También faros de niebla.</p>
+            <a class="card__go" href="cotizar/?pieza=Faro" data-evento="ir-cotizar-faro">Cotizar <span class="sr-only">faros</span><span aria-hidden="true">→</span></a>
           </li>
           <li class="card reveal">
             <svg class="pic" viewBox="0 0 80 56" aria-hidden="true"><path d="M4 18c8-8 64-8 72 0v18c0 8-6 12-12 12H16C10 48 4 44 4 36Z" fill="#FD650A" stroke="#111" stroke-width="4" stroke-linejoin="round"/><rect x="22" y="24" width="36" height="12" rx="4" fill="#111"/><circle cx="12" cy="38" r="4" fill="#fff" stroke="#111" stroke-width="3"/><circle cx="68" cy="38" r="4" fill="#fff" stroke="#111" stroke-width="3"/></svg>
             <h3>Fascias</h3>
             <p>Delanteras y traseras, también defensas.</p>
+            <a class="card__go" href="cotizar/?pieza=Fascia" data-evento="ir-cotizar-fascia">Cotizar <span class="sr-only">fascias</span><span aria-hidden="true">→</span></a>
           </li>
           <li class="card reveal">
             <svg class="pic" viewBox="0 0 80 56" aria-hidden="true"><path d="M10 8h44c10 0 16 8 16 20s-6 20-16 20H10Z" fill="#E4252C" stroke="#111" stroke-width="4" stroke-linejoin="round"/><path d="M10 28h58" stroke="#111" stroke-width="4"/><rect x="18" y="14" width="16" height="8" rx="3" fill="#fff" stroke="#111" stroke-width="3"/><rect x="18" y="34" width="26" height="8" rx="3" fill="#FD650A" stroke="#111" stroke-width="3"/></svg>
             <h3>Calaveras</h3>
             <p>Las luces traseras, lado piloto y copiloto.</p>
+            <a class="card__go" href="cotizar/?pieza=Calavera" data-evento="ir-cotizar-calavera">Cotizar <span class="sr-only">calaveras</span><span aria-hidden="true">→</span></a>
           </li>
           <li class="card reveal">
             <svg class="pic" viewBox="0 0 80 56" aria-hidden="true"><rect x="6" y="8" width="68" height="40" rx="6" fill="#fff" stroke="#111" stroke-width="4"/><rect x="18" y="18" width="44" height="20" rx="3" fill="#0073C2" stroke="#111" stroke-width="4"/><circle cx="12" cy="14" r="2.5" fill="#111"/><circle cx="68" cy="14" r="2.5" fill="#111"/><circle cx="12" cy="42" r="2.5" fill="#111"/><circle cx="68" cy="42" r="2.5" fill="#111"/></svg>
             <h3>Marcos de radiador</h3>
             <p>El famoso “alma” del frente.</p>
+            <a class="card__go" href="cotizar/?pieza=Marco%20de%20radiador" data-evento="ir-cotizar-marco">Cotizar <span class="sr-only">marcos de radiador</span><span aria-hidden="true">→</span></a>
           </li>
         </ul>
         <p class="also reveal"><strong>Y también:</strong></p>
@@ -267,12 +271,11 @@
       </div>
     </section>
 
-    <!-- ===== Cómo trabajamos ===== -->
-    <section class="sec sec--orange" id="como-compras" aria-labelledby="t-como">
+    <!-- ===== Por qué tan barato ===== -->
+    <section class="sec sec--orange" id="por-que" aria-labelledby="t-porque">
       <div class="wrap">
-        <h2 id="t-como" class="reveal">Cómo trabajamos</h2>
-        <p class="big reveal narrow-text">¿Por qué tan barato? Porque muchas de nuestras piezas traen un <strong>detalle estético</strong>: un rayón, un raspón o un golpecito. No son de deshuesadero; nos llegan de distribuidor. Y <strong>antes de venderte, te enseñamos el detalle</strong> con fotos o video. Tú decides.</p>
-
+        <h2 id="t-porque" class="reveal">¿Por qué tan barato?</h2>
+        <p class="big reveal narrow-text">Muchas de nuestras piezas traen un <strong>detalle estético</strong>: un rayón, un raspón o un golpecito. No son de deshuesadero; nos llegan de distribuidor. Y <strong>antes de venderte, te enseñamos el detalle</strong> con fotos o video. Tú decides.</p>
         <div class="kinds">
           <article class="kind reveal">
             <p class="kind__tag">Lo más común</p>
@@ -285,51 +288,10 @@
             <p>Sin detalles a la vista. Cuesta un poco más, pero sigue abajo del precio de lista.</p>
           </article>
         </div>
-
-        <h3 class="h3-big reveal">Así compras</h3>
-        <ol class="steps">
-          <li class="step reveal"><span class="step__n" aria-hidden="true">1</span><span>Nos dices qué pieza y para qué carro: marca, modelo y año.</span></li>
-          <li class="step reveal"><span class="step__n" aria-hidden="true">2</span><span>Te mandamos fotos, el detalle y el precio.</span></li>
-          <li class="step reveal"><span class="step__n" aria-hidden="true">3</span><span>Si te late, es tuya: pasas al local o te la enviamos. Si no, sin compromiso.</span></li>
-        </ol>
-
-        <!-- Cotizador: arma el mensaje de WhatsApp con los datos completos -->
-        <form class="quote reveal" id="cotizador" action="https://wa.me/523335044838" method="get" target="_blank" aria-labelledby="t-cotizador" novalidate>
-          <h3 id="t-cotizador">Arma tu cotización</h3>
-          <p class="quote__sub">Llena lo que sepas y te abrimos WhatsApp con el mensaje listo. Así te contestamos más rápido.</p>
-          <div class="quote__grid">
-            <label class="field">
-              <span>¿Qué pieza?</span>
-              <select name="pieza" required>
-                <option value="">Elige una</option>
-                <option>Faro</option><option>Faro de niebla</option><option>Fascia delantera</option><option>Fascia trasera</option><option>Defensa</option><option>Calavera</option><option>Marco de radiador</option><option>Espejo</option><option>Parrilla</option><option>Cofre</option><option>Salpicadera</option><option>Puerta</option><option>Tolva</option><option>Moldura</option><option>Manija</option><option>Radiador</option><option>Condensador</option><option>Motoventilador</option><option>Otra</option>
-              </select>
-            </label>
-            <label class="field">
-              <span>Lado</span>
-              <select name="lado">
-                <option value="">No aplica / no sé</option>
-                <option value="lado piloto (izquierdo)">Piloto (izquierdo)</option>
-                <option value="lado copiloto (derecho)">Copiloto (derecho)</option>
-                <option value="los dos lados">Los dos</option>
-              </select>
-            </label>
-            <label class="field">
-              <span>Marca y modelo</span>
-              <input name="modelo" type="text" autocomplete="off" placeholder="Ej. Nissan Versa" required>
-            </label>
-            <label class="field">
-              <span>Año</span>
-              <input name="anio" type="text" inputmode="numeric" maxlength="9" autocomplete="off" placeholder="Ej. 2018">
-            </label>
-            <label class="field field--wide">
-              <span>¿Te la enviamos? Pon tu ciudad (opcional)</span>
-              <input name="ciudad" type="text" autocomplete="address-level2" placeholder="Si pasas al local, déjalo vacío">
-            </label>
-          </div>
-          <p class="quote__err" role="alert" hidden>Dinos al menos qué pieza y la marca y modelo.</p>
-          <button class="btn btn--wa" type="submit" data-evento="wa-cotizador"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Mandar por WhatsApp</button>
-        </form>
+        <div class="cta-band reveal">
+          <p><strong>¿Ya sabes qué pieza necesitas?</strong> Cotízala en un minuto y te contestamos por WhatsApp.</p>
+          <a class="btn btn--wa" href="cotizar/" data-evento="ir-cotizar-porque">Cotiza tu pieza <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
 
@@ -365,7 +327,7 @@
           <li class="step reveal"><span class="step__n" aria-hidden="true">2</span><span>Te damos el precio de la pieza más el envío.</span></li>
           <li class="step reveal"><span class="step__n" aria-hidden="true">3</span><span>Pagas y la mandamos por la paquetería que más te convenga.</span></li>
         </ol>
-        <a class="btn btn--wa reveal" href="https://wa.me/523335044838?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20cotizar%20una%20pieza%20con%20env%C3%ADo%20a%20mi%20ciudad." target="_blank" rel="noopener" data-evento="wa-envios"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> Cotiza con envío</a>
+        <a class="btn btn--wa reveal" href="cotizar/?envio=1" data-evento="ir-cotizar-envios">Cotiza con envío <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -466,7 +428,7 @@
         -->
       </ul>
       <nav class="foot__nav" aria-label="Secciones (pie de página)">
-        <a href="#nosotros">Nosotros</a> · <a href="#piezas">Piezas</a> · <a href="#como-compras">Cómo compras</a> · <a href="#envios">Envíos</a> · <a href="#contacto">Contacto</a> · <a href="#preguntas">Preguntas</a>
+        <a href="#nosotros">Nosotros</a> · <a href="#piezas">Piezas</a> · <a href="cotizar/">Cotiza</a> · <a href="#envios">Envíos</a> · <a href="#contacto">Contacto</a> · <a href="#preguntas">Preguntas</a>
       </nav>
       <p class="small">© <span id="year">2026</span> Refacciones El Charro · Guadalajara, Jalisco</p>
     </div>
