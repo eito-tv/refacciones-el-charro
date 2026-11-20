@@ -384,7 +384,7 @@ address { font-style: normal; }
   font-family: var(--display); font-size: 1.45rem; line-height: 1.1;
 }
 .qstep legend small { font-family: var(--text); font-size: .85rem; font-weight: 600; opacity: .7; }
-.qstep legend + * { clear: both; }
+.qstep > :not(legend) { clear: both; } /* todo lo que sigue al título va debajo (no al lado) */
 .qstep__n {
   flex: none; display: grid; place-items: center; width: 36px; height: 36px;
   background: var(--yellow); border: var(--line); border-radius: 50%; font-size: 1.15rem;
@@ -689,3 +689,33 @@ address { font-style: normal; }
 .qsub { margin-top: 6px; }
 .qsub .qgrid { margin-top: 10px; }
 #wrap-envio > .q-help:first-child { margin-top: 12px; }
+
+/* Cotizador · borrar y empezar de cero */
+.qtools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+.qtools__note { margin: 0; font-size: .9rem; font-weight: 600; opacity: .8; }
+.qtools__clear, .qstep__clear {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4em; min-height: 44px;
+  background: var(--white); color: #a3080e; border: 2px solid #a3080e; border-radius: 999px;
+  font: inherit; font-weight: 800; cursor: pointer; transition: background-color .15s ease, opacity .15s ease;
+}
+.qtools__clear { padding: 0 16px; }
+.qtools__clear:hover:not(:disabled), .qstep__clear:hover:not(:disabled) { background: #ffe9e6; }
+.qtools__clear:disabled, .qstep__clear:disabled { color: #8a8a8a; border-color: #c9c9c9; background: transparent; cursor: not-allowed; opacity: .6; }
+.qstep { position: relative; }
+.qstep legend { padding-right: 52px; }
+.qstep__clear { position: absolute; top: 12px; right: 12px; width: 44px; padding: 0; }
+.qstep__clear .ico { width: 22px; height: 22px; }
+
+.qtoast {
+  position: fixed; left: 0; right: 0; bottom: calc(100px + env(safe-area-inset-bottom)); z-index: 60;
+  display: flex; align-items: center; gap: 14px; width: max-content; max-width: calc(100% - 24px);
+  margin: 0 auto; padding: 10px 10px 10px 16px;
+  background: var(--ink); color: var(--white); border: 2px solid var(--white); border-radius: 14px; box-shadow: 0 10px 28px rgba(0, 0, 0, .3);
+  font-weight: 700; animation: rise .3s ease-out both;
+}
+.qtoast[hidden] { display: none; }
+.qtoast button {
+  flex: none; min-height: 40px; padding: 0 14px; background: var(--yellow); color: var(--ink);
+  border: 0; border-radius: 999px; font: inherit; font-weight: 800; cursor: pointer;
+}
+@media (min-width: 768px) { .qtoast { bottom: 24px; } .qstep__clear { top: 16px; right: 16px; } }

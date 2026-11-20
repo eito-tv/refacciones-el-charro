@@ -7,6 +7,9 @@
   var MAX_PIEZAS = 6;
   var LS = 'charro-cotizacion-v2';
   var TOUCH = window.matchMedia('(pointer: coarse)').matches;
+  var REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Desplaza suave, salvo que la persona haya pedido menos animaciones
+  function ir(el, block) { if (el) el.scrollIntoView({ block: block || 'nearest', behavior: REDUCE ? 'auto' : 'smooth' }); }
 
   // ---------- Piezas ----------
   // lado: izquierdo/derecho · pos: delantera/trasera · dos: no ofrece "las dos" en posición
@@ -62,32 +65,57 @@
 
   // ---------- Marcas y modelos ----------
   var COMUNES = ['Nissan', 'Chevrolet', 'Volkswagen', 'Toyota', 'Honda', 'Ford', 'Kia', 'Hyundai', 'Mazda', 'Dodge', 'RAM'];
-  var MARCAS = ['Acura', 'Audi', 'BAIC', 'BMW', 'Buick', 'BYD', 'Cadillac', 'Changan', 'Chevrolet', 'Chirey', 'Chrysler', 'Cupra',
-    'Dodge', 'Fiat', 'Ford', 'Foton', 'GMC', 'Great Wall', 'Honda', 'Hyundai', 'Infiniti', 'International', 'Isuzu', 'JAC',
-    'Jeep', 'Jetour', 'Kia', 'Lincoln', 'Mazda', 'Mercedes-Benz', 'MG', 'Mini', 'Mitsubishi', 'Nissan', 'Omoda', 'Peugeot',
-    'RAM', 'Renault', 'Seat', 'Subaru', 'Suzuki', 'Toyota', 'Volkswagen', 'Volvo'];
+  // Modelos más comunes en México por marca (si no aparece, la persona elige "Otro modelo" y lo escribe)
   var MODELOS = {
-    'Nissan': ['Versa', 'Sentra', 'March', 'Tsuru', 'Tiida', 'Kicks', 'X-Trail', 'NP300', 'Frontier', 'Altima', 'Note', 'Pathfinder', 'Murano', 'Urvan'],
-    'Chevrolet': ['Aveo', 'Beat', 'Spark', 'Onix', 'Sonic', 'Cruze', 'Trax', 'Tracker', 'Captiva', 'Equinox', 'Malibu', 'S10', 'Tornado', 'Silverado', 'Cheyenne', 'Tahoe', 'Suburban'],
-    'Volkswagen': ['Jetta', 'Vento', 'Polo', 'Gol', 'Virtus', 'Golf', 'Beetle', 'Pointer', 'T-Cross', 'Taos', 'Tiguan', 'Teramont', 'Saveiro', 'Amarok'],
-    'Toyota': ['Corolla', 'Yaris', 'Camry', 'Prius', 'Avanza', 'Raize', 'RAV4', 'Highlander', 'Sienna', 'Hilux', 'Tacoma', 'Tundra'],
-    'Honda': ['Civic', 'City', 'Fit', 'Accord', 'HR-V', 'BR-V', 'CR-V', 'Pilot', 'Odyssey'],
-    'Ford': ['Figo', 'Fiesta', 'Focus', 'Fusion', 'EcoSport', 'Territory', 'Escape', 'Edge', 'Explorer', 'Ranger', 'Maverick', 'Lobo', 'F-150', 'Mustang'],
-    'Kia': ['Rio', 'Forte', 'K3', 'Soul', 'Sonet', 'Seltos', 'Sportage', 'Sorento'],
-    'Hyundai': ['Grand i10', 'Accent', 'HB20', 'Elantra', 'Creta', 'Tucson', 'Santa Fe'],
-    'Mazda': ['Mazda 2', 'Mazda 3', 'Mazda 6', 'CX-3', 'CX-30', 'CX-5', 'CX-50', 'CX-9', 'CX-90', 'BT-50'],
-    'Dodge': ['Attitude', 'Neon', 'Dart', 'Avenger', 'Journey', 'Durango', 'Charger', 'Challenger', 'Grand Caravan'],
+    'Acura': ['ILX', 'Integra', 'RDX', 'MDX', 'RSX', 'TL', 'TLX', 'TSX', 'ZDX'],
+    'Audi': ['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'TT', 'e-tron'],
+    'BAIC': ['D20', 'X25', 'X35', 'X55', 'X65', 'BJ40', 'U5 Plus'],
+    'BMW': ['Serie 1', 'Serie 2', 'Serie 3', 'Serie 4', 'Serie 5', 'Serie 7', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'Z4', 'i3', 'iX'],
+    'Buick': ['Encore', 'Encore GX', 'Envista', 'Envision', 'Enclave', 'LaCrosse', 'Regal', 'Verano'],
+    'BYD': ['Dolphin Mini', 'Dolphin', 'Yuan', 'Song Plus', 'Song Pro', 'King', 'Seal', 'Han', 'Tang', 'Shark'],
+    'Cadillac': ['ATS', 'CTS', 'CT4', 'CT5', 'CT6', 'XT4', 'XT5', 'XT6', 'SRX', 'Escalade', 'Lyriq'],
+    'Changan': ['Alsvin', 'CS15', 'CS35 Plus', 'CS55 Plus', 'UNI-T', 'UNI-K', 'Hunter'],
+    'Chevrolet': ['Aveo', 'Beat', 'Chevy', 'Spark', 'Onix', 'Sonic', 'Optra', 'Cruze', 'Malibu', 'Trax', 'Tracker', 'Groove', 'Captiva', 'Equinox', 'Blazer', 'S10', 'Tornado', 'Colorado', 'Silverado', 'Cheyenne', 'Avalanche', 'Tahoe', 'Suburban', 'Express'],
+    'Chirey': ['Tiggo 2 Pro', 'Tiggo 4 Pro', 'Tiggo 7 Pro', 'Tiggo 8 Pro', 'Arrizo 5', 'Arrizo 8'],
+    'Chrysler': ['200', '300', 'PT Cruiser', 'Pacifica', 'Town & Country', 'Voyager'],
+    'Cupra': ['León', 'Formentor', 'Ateca', 'Born', 'Terramar'],
+    'Dodge': ['Attitude', 'Neon', 'Dart', 'Caliber', 'Stratus', 'Avenger', 'Journey', 'Durango', 'Charger', 'Challenger', 'Grand Caravan', 'Ram (antes de 2011)'],
+    'Fiat': ['Mobi', 'Uno', 'Palio', 'Punto', 'Argo', 'Pulse', 'Fastback', '500', 'Strada', 'Fiorino', 'Ducato'],
+    'Ford': ['Ka', 'Ikon', 'Figo', 'Fiesta', 'Focus', 'Fusion', 'Mustang', 'EcoSport', 'Territory', 'Escape', 'Bronco Sport', 'Bronco', 'Edge', 'Explorer', 'Expedition', 'Courier', 'Ranger', 'Maverick', 'Lobo', 'F-150', 'F-250 / Super Duty', 'Transit'],
+    'Foton': ['Tunland', 'View', 'Toano', 'Aumark', 'Miler'],
+    'Freightliner': ['Cascadia', 'Columbia', 'M2', 'FL'],
+    'GMC': ['Terrain', 'Acadia', 'Yukon', 'Canyon', 'Sierra', 'Savana'],
+    'Great Wall': ['Wingle', 'Poer', 'Haval H6', 'Haval Jolion', 'Tank 300'],
+    'Hino': ['Serie 300', 'Serie 500'],
+    'Honda': ['Fit', 'City', 'Civic', 'Accord', 'HR-V', 'BR-V', 'CR-V', 'Pilot', 'Odyssey'],
+    'Hyundai': ['Grand i10', 'Accent', 'HB20', 'Elantra', 'Ioniq', 'Kona', 'Creta', 'Tucson', 'Santa Fe', 'Palisade', 'H100 / Starex'],
+    'Infiniti': ['G37', 'Q50', 'Q60', 'QX50', 'QX55', 'QX60', 'QX80', 'FX35'],
+    'International': ['Serie 4000', 'DuraStar', 'MV', 'HV', 'LT', 'ProStar'],
+    'Isuzu': ['ELF 100', 'ELF 200', 'ELF 300', 'ELF 400', 'ELF 500', 'ELF 600', 'Forward', 'D-Max'],
+    'JAC': ['J4', 'Sei2', 'Sei3', 'Sei4 Pro', 'Sei7 Pro', 'J7', 'Frison T6', 'Frison T8', 'X200', 'X250', 'E10X', 'Sunray'],
+    'Jeep': ['Renegade', 'Compass', 'Patriot', 'Liberty', 'Cherokee', 'Grand Cherokee', 'Commander', 'Wrangler', 'Gladiator'],
+    'Jetour': ['Dashing', 'X70', 'X70 Plus', 'T2'],
+    'Kenworth': ['T370', 'T680', 'T800', 'T880', 'W900'],
+    'Kia': ['Picanto', 'Rio', 'Forte', 'K3', 'K4', 'Soul', 'Niro', 'Sonet', 'Seltos', 'Sportage', 'Sorento', 'Carnival'],
+    'Lincoln': ['MKZ', 'MKC', 'MKX', 'Continental', 'Corsair', 'Nautilus', 'Aviator', 'Navigator'],
+    'Mazda': ['Mazda 2', 'Mazda 3', 'Mazda 5', 'Mazda 6', 'MX-5', 'CX-3', 'CX-30', 'CX-5', 'CX-50', 'CX-7', 'CX-9', 'CX-90', 'BT-50'],
+    'Mercedes-Benz': ['Clase A', 'Clase B', 'Clase C', 'Clase E', 'Clase S', 'CLA', 'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'Clase G', 'Vito', 'Sprinter'],
+    'MG': ['MG3', 'MG4', 'MG5', 'ZS', 'HS', 'RX5', 'GT', 'One'],
+    'Mini': ['Cooper', 'Cooper S', 'Clubman', 'Countryman', 'Paceman'],
+    'Mitsubishi': ['Mirage', 'Mirage G4', 'Lancer', 'Xpander', 'ASX', 'Eclipse Cross', 'Outlander', 'Montero', 'Montero Sport', 'L200'],
+    'Nissan': ['March', 'Versa', 'Tsuru', 'Platina', 'Tiida', 'Sentra', 'Altima', 'Maxima', 'Note', 'Kicks', 'Juke', 'X-Trail', 'Rogue', 'Murano', 'Pathfinder', 'NP300 / Estacas', 'Frontier', 'Titan', 'Urvan'],
+    'Omoda': ['C5', 'O5', 'E5'],
+    'Peugeot': ['206', '207', '208', '2008', '301', '308', '3008', '408', '5008', 'Partner', 'Rifter', 'Expert', 'Landtrek'],
     'RAM': ['700', '1500', '2500', '4000', 'ProMaster'],
-    'Jeep': ['Renegade', 'Compass', 'Patriot', 'Liberty', 'Cherokee', 'Grand Cherokee', 'Wrangler'],
-    'Mitsubishi': ['Mirage', 'Lancer', 'Outlander', 'Eclipse Cross', 'Montero', 'L200'],
-    'Renault': ['Kwid', 'Logan', 'Sandero', 'Stepway', 'Duster', 'Captur', 'Koleos', 'Oroch'],
-    'Suzuki': ['Swift', 'Ignis', 'Baleno', 'Ciaz', 'Ertiga', 'Vitara', 'S-Cross', 'Jimny'],
-    'Seat': ['Ibiza', 'León', 'Toledo', 'Arona', 'Ateca'],
-    'Peugeot': ['208', '2008', '301', '3008', '5008', 'Partner', 'Expert'],
-    'MG': ['MG3', 'MG5', 'ZS', 'HS', 'RX5', 'GT', 'One'],
-    'BYD': ['Dolphin Mini', 'Dolphin', 'Yuan', 'Song Plus', 'Seal', 'Han', 'Tang', 'Shark'],
-    'Chirey': ['Tiggo 2 Pro', 'Tiggo 4 Pro', 'Tiggo 7 Pro', 'Tiggo 8 Pro', 'Arrizo 8']
+    'Renault': ['Clio', 'Kwid', 'Logan', 'Sandero', 'Stepway', 'Scala', 'Megane', 'Fluence', 'Kardian', 'Duster', 'Captur', 'Arkana', 'Koleos', 'Kangoo', 'Oroch'],
+    'Seat': ['Ibiza', 'Córdoba', 'León', 'Toledo', 'Arona', 'Ateca', 'Tarraco'],
+    'Subaru': ['Impreza', 'WRX', 'XV / Crosstrek', 'Forester', 'Outback', 'Legacy', 'BRZ'],
+    'Suzuki': ['Swift', 'Ignis', 'Baleno', 'Ciaz', 'SX4', 'Ertiga', 'Vitara', 'Grand Vitara', 'S-Cross', 'Jimny'],
+    'Toyota': ['Yaris', 'Corolla', 'Camry', 'Prius', 'Avanza', 'Raize', 'C-HR', 'Corolla Cross', 'RAV4', 'Highlander', '4Runner', 'Sequoia', 'Land Cruiser', 'Sienna', 'Hilux', 'Tacoma', 'Tundra', 'Hiace'],
+    'Volkswagen': ['Sedán (Vocho)', 'Gol', 'Pointer', 'Lupo', 'Polo', 'Virtus', 'Vento', 'Jetta', 'Bora', 'Golf', 'Beetle', 'Passat', 'Up!', 'Crossfox', 'Nivus', 'T-Cross', 'Taos', 'Tiguan', 'Teramont', 'Touareg', 'Saveiro', 'Amarok', 'Transporter', 'Crafter', 'Delivery / Constellation (camión)'],
+    'Volvo': ['S60', 'S90', 'V40', 'V60', 'XC40', 'XC60', 'XC90', 'EX30']
   };
+  var MARCAS = Object.keys(MODELOS).sort(function (a, b) { return a.localeCompare(b, 'es'); });
   var OTRA_MARCA = '__otra__';
   var OTRO_MODELO = '__otro__';
 
@@ -182,8 +210,24 @@
     wrapModeloTxt.hidden = !wrapModeloSel.hidden && modeloSel.value !== OTRO_MODELO;
     if (foco && modeloSel.value === OTRO_MODELO) enfocar(modeloTxt);
   }
-  marca.addEventListener('change', function () { onMarca(true); });
-  modeloSel.addEventListener('change', function () { onModelo(true); });
+  marca.addEventListener('change', function () {
+    onMarca(true);
+    if (!wrapModeloSel.hidden) enfocar(modeloSel);
+  });
+  modeloSel.addEventListener('change', function () {
+    onModelo(true);
+    if (modeloSel.value && modeloSel.value !== OTRO_MODELO) enfocar(anio);
+  });
+  anio.addEventListener('change', function () {
+    // Carro completo: lleva a la persona al paso 2 si todavía no lo ve
+    var d = datos();
+    if (d.marca && d.modelo && d.anio) {
+      var paso2 = steps[1];
+      if (paso2 && paso2.getBoundingClientRect().top > window.innerHeight - 140) {
+        ir(paso2, 'start');
+      }
+    }
+  });
 
   // ---------- Piezas ----------
   var uid = 0;
@@ -263,7 +307,7 @@
       if (!restaurando) {
         var sig = li.querySelector('.q-wrap-otra:not([hidden]) input, .q-wrap-pos:not([hidden]) input, .q-wrap-lado:not([hidden]) input, .q-det input');
         enfocar(sig);
-        li.querySelector('.q-chosen').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        ir(li.querySelector('.q-chosen'), 'nearest');
       }
     });
     // "No sé" excluye a las demás opciones del detalle
@@ -295,7 +339,7 @@
   addBtn.addEventListener('click', function () {
     var li = agregar();
     enfocar(li.querySelector('.q-tiles input'));
-    li.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    ir(li, 'start');
     actualizar();
   });
 
@@ -424,43 +468,43 @@
     ok.forEach(function (v, i) { if (steps[i]) steps[i].classList.toggle('is-done', v); });
   }
 
-  // ---------- Guardar avance (solo en este navegador) ----------
-  function guardar(d) {
-    if (restaurando) return;
-    var env = {};
+  // ---------- Estado: guardar, restaurar y borrar ----------
+  function estado() {
+    var d = datos(), env = {};
     Object.keys(E).forEach(function (k) { env[k] = E[k].value; });
-    try {
-      localStorage.setItem(LS, JSON.stringify({
-        marca: marca.value, marcaTxt: marcaTxt.value, modeloSel: modeloSel.value, modeloTxt: modeloTxt.value, anio: anio.value,
-        piezas: d.piezas.map(function (x) { return { i: x.i, otra: x.otra, pos: x.pos, lado: x.lado, det: x.det, nota: x.nota }; }),
-        entrega: d.entrega, local: d.local, recibe: d.envio.recibe, convenio: d.envio.convenioSi ? 'si' : 'no',
-        env: env, estadoAuto: E.estado.dataset.auto || '', nombre: d.nombre, factura: d.factura ? 'si' : 'no'
-      }));
-    } catch (e) { /* modo privado o sin espacio: no pasa nada */ }
+    return {
+      marca: marca.value, marcaTxt: marcaTxt.value, modeloSel: modeloSel.value, modeloTxt: modeloTxt.value, anio: anio.value,
+      piezas: d.piezas.map(function (x) { return { i: x.i, otra: x.otra, pos: x.pos, lado: x.lado, det: x.det, nota: x.nota }; }),
+      entrega: d.entrega, local: d.local, recibe: d.envio.recibe, convenio: d.envio.convenioSi ? 'si' : 'no',
+      env: env, estadoAuto: E.estado.dataset.auto || '', nombre: d.nombre, factura: d.factura ? 'si' : 'no'
+    };
   }
-  function restaurar() {
-    var s = null;
-    try { s = JSON.parse(localStorage.getItem(LS) || 'null'); } catch (e) { s = null; }
+  function guardar() {
+    if (restaurando) return;
+    try { localStorage.setItem(LS, JSON.stringify(estado())); } catch (e) { /* modo privado o sin espacio: no pasa nada */ }
+  }
+  // Pone el formulario exactamente como dice "s" (vacío si s no trae nada)
+  function aplicar(s, pieza, envio) {
+    s = s || {};
     restaurando = true;
-    if (s) {
-      marca.value = s.marca || ''; onMarca(false);
-      marcaTxt.value = s.marcaTxt || '';
-      if (!wrapModeloSel.hidden) modeloSel.value = s.modeloSel || '';
-      modeloTxt.value = s.modeloTxt || ''; onModelo(false);
-      anio.value = s.anio || '';
-      if (s.entrega) marcarRadio('entrega', s.entrega);
-      if (s.local) marcarRadio('local', s.local);
-      if (s.recibe) marcarRadio('recibe', s.recibe);
-      if (s.convenio) marcarRadio('convenio', s.convenio);
-      if (s.factura) marcarRadio('factura', s.factura);
-      if (s.env) Object.keys(E).forEach(function (k) { if (s.env[k] != null) E[k].value = s.env[k]; });
-      E.estado.dataset.auto = s.estadoAuto || '';
-      nombre.value = s.nombre || '';
-    }
-    var pre = params.get('pieza');
-    if (pre) {
-      agregar(pre);
-    } else if (s && s.piezas && s.piezas.length) {
+    form.reset();
+    list.innerHTML = '';
+    marca.value = s.marca || ''; onMarca(false);
+    marcaTxt.value = s.marcaTxt || '';
+    if (!wrapModeloSel.hidden) modeloSel.value = s.modeloSel || '';
+    modeloTxt.value = s.modeloTxt || ''; onModelo(false);
+    anio.value = s.anio || '';
+    if (s.entrega) marcarRadio('entrega', s.entrega);
+    if (s.local) marcarRadio('local', s.local);
+    if (s.recibe) marcarRadio('recibe', s.recibe);
+    if (s.convenio) marcarRadio('convenio', s.convenio);
+    if (s.factura) marcarRadio('factura', s.factura);
+    Object.keys(E).forEach(function (k) { E[k].value = s.env && s.env[k] != null ? s.env[k] : ''; });
+    E.estado.dataset.auto = s.estadoAuto || '';
+    nombre.value = s.nombre || '';
+    if (pieza) {
+      agregar(pieza);
+    } else if (s.piezas && s.piezas.length) {
       s.piezas.slice(0, MAX_PIEZAS).forEach(function (x) {
         var li = agregar(x.i >= 0 ? x.i : null), id = li.dataset.id;
         li.querySelector('.q-otra').value = x.otra || '';
@@ -474,16 +518,72 @@
     } else {
       agregar();
     }
-    if (params.get('envio') === '1') marcarRadio('entrega', 'envio');
+    if (envio) marcarRadio('entrega', 'envio');
     mostrarEntrega();
     restaurando = false;
   }
+  function restaurar() {
+    var s = null;
+    try { s = JSON.parse(localStorage.getItem(LS) || 'null'); } catch (e) { s = null; }
+    aplicar(s, params.get('pieza'), params.get('envio') === '1');
+  }
+
+  // ¿Qué tiene algo escrito o elegido? (para activar los botones de borrar)
+  function conDatos(s) {
+    var piezas = s.piezas.length > 1 || s.piezas.some(function (x) { return x.i >= 0; });
+    var envio = Object.keys(s.env).some(function (k) { return !!s.env[k]; });
+    var r = {
+      carro: !!(s.marca || s.modeloSel || s.modeloTxt || s.anio || s.marcaTxt),
+      piezas: piezas,
+      entrega: s.entrega === 'envio' || !!s.local || envio || s.convenio === 'si' || s.recibe === 'ocurre',
+      extras: !!s.nombre || s.factura === 'si'
+    };
+    r.todo = r.carro || r.piezas || r.entrega || r.extras;
+    return r;
+  }
+  function botonesBorrar(s) {
+    var c = conDatos(s);
+    form.querySelectorAll('[data-borrar]').forEach(function (b) { b.disabled = !c[b.dataset.borrar]; });
+  }
+
+  var toast = $('qtoast'), toastT = $('qtoast-t'), anterior = null, toastTimer;
+  var AVISO = { carro: 'Se borraron los datos de tu carro.', piezas: 'Se borraron las piezas.', entrega: 'Se borró la entrega.',
+    extras: 'Se borraron tu nombre y la factura.', todo: 'Se borró todo. Empezamos de cero.' };
+  function borrar(que) {
+    var s = estado();
+    anterior = JSON.parse(JSON.stringify(s));
+    if (que === 'todo') { s = {}; }
+    if (que === 'carro') { s.marca = s.marcaTxt = s.modeloSel = s.modeloTxt = s.anio = ''; }
+    if (que === 'piezas') { s.piezas = []; }
+    if (que === 'entrega') { s.entrega = 'local'; s.local = ''; s.recibe = 'domicilio'; s.convenio = 'no'; s.env = {}; s.estadoAuto = ''; }
+    if (que === 'extras') { s.nombre = ''; s.factura = 'no'; }
+    aplicar(s);
+    limpiarErrores();
+    actualizar();
+    toastT.textContent = AVISO[que];
+    toast.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.hidden = true; anterior = null; }, 7000);
+    var paso = que === 'todo' ? form : form.querySelector('[data-borrar="' + que + '"]').closest('.qstep');
+    if (paso.getBoundingClientRect().top < 0) ir(paso, 'start');
+  }
+  form.querySelectorAll('[data-borrar]').forEach(function (b) {
+    b.addEventListener('click', function () { if (!b.disabled) borrar(b.dataset.borrar); });
+  });
+  $('qundo').addEventListener('click', function () {
+    if (!anterior) return;
+    aplicar(anterior);
+    anterior = null;
+    toast.hidden = true;
+    actualizar();
+  });
 
   function actualizar() {
     var d = datos();
     preview.textContent = mensaje(d);
     marcarPasos(d);
-    guardar(d);
+    guardar();
+    botonesBorrar(estado());
     return d;
   }
 
@@ -537,7 +637,7 @@
     var v = validar();
     if (v.primero) {
       var caja = v.primero.closest('.field, .qitem, .qstep') || v.primero;
-      caja.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      ir(caja, 'center');
       enfocar(v.primero);
       return;
     }
@@ -546,7 +646,7 @@
     doneLink.href = url;
     done.hidden = false;
     done.focus({ preventScroll: true });
-    done.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    ir(done, 'center');
     // En celular se abre en la misma pestaña (funciona también dentro de Facebook e Instagram);
     // en computadora, en otra pestaña para no perder la página.
     if (TOUCH) {
@@ -569,22 +669,8 @@
     agregar();
     limpiarErrores();
     actualizar();
-    list.closest('.qstep').scrollIntoView({ block: 'start', behavior: 'smooth' });
+    ir(list.closest('.qstep'), 'start');
   });
-  $('qclear').addEventListener('click', function () {
-    try { localStorage.removeItem(LS); localStorage.removeItem('charro-cotizacion-v1'); } catch (e) { /* nada */ }
-    form.reset();
-    E.estado.dataset.auto = '';
-    list.innerHTML = '';
-    onMarca(false); onModelo(false);
-    limpiarErrores();
-    agregar();
-    mostrarEntrega();
-    actualizar();
-    marca.focus({ preventScroll: true });
-    form.scrollIntoView({ block: 'start', behavior: 'smooth' });
-  });
-
   // ---------- Inicio ----------
   try { localStorage.removeItem('charro-cotizacion-v1'); } catch (e) { /* versión anterior */ }
   restaurar();
